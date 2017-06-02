@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 02, 2017 at 03:29 AM
+-- Host: 127.0.0.1
+-- Generation Time: Jun 02, 2017 at 12:04 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,6 +31,17 @@ CREATE TABLE `admin` (
   `officeID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`staffID`, `officeID`) VALUES
+('st01', 'of01'),
+('st02', 'of02'),
+('st03', 'of03'),
+('st04', 'of04'),
+('st05', 'of05');
+
 -- --------------------------------------------------------
 
 --
@@ -39,8 +50,19 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `business` (
   `clientID` varchar(100) NOT NULL,
-  `contractID` varchar(100) NOT NULL
+  `contractID` varchar(100) NOT NULL,
+  `address` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `business`
+--
+
+INSERT INTO `business` (`clientID`, `contractID`, `address`) VALUES
+('cl01', 'ct01', 'Jl. Teh Botol Sosro'),
+('cl05', 'ct02', 'Jl. Unilever Utara'),
+('cl06', 'ct03', 'Jl. Apple Selatan'),
+('cl10', 'ct04', 'Jl. Central Asia');
 
 -- --------------------------------------------------------
 
@@ -55,6 +77,22 @@ CREATE TABLE `client` (
   `position` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`clientID`, `name`, `phone`, `position`) VALUES
+('cl01', 'Teh Botol', '0819849392', 'b'),
+('cl02', 'Kabel Data', '09128394030', 'p'),
+('cl03', 'Wilson Will', '08123949302', 'p'),
+('cl04', 'Semoura Coyy', '08123948392', 'p'),
+('cl05', 'Unilever', '08123949203', 'b'),
+('cl06', 'Apple', '08123494320', 'b'),
+('cl07', 'Teddy Hooo', '08158393201', 'p'),
+('cl08', 'Tono Oye', '089917238884', 'p'),
+('cl09', 'Ono Oo', '089888399282', 'p'),
+('cl10', 'BCA', '0213444555', 'b');
+
 -- --------------------------------------------------------
 
 --
@@ -64,8 +102,30 @@ CREATE TABLE `client` (
 CREATE TABLE `contract` (
   `contractID` varchar(100) NOT NULL,
   `staffID` varchar(100) NOT NULL,
-  `numberOfJob` int(11) NOT NULL
+  `numberOfJob` int(11) NOT NULL,
+  `totalMilage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contract`
+--
+
+INSERT INTO `contract` (`contractID`, `staffID`, `numberOfJob`, `totalMilage`) VALUES
+('ct01', 'st06', 5, 50),
+('ct02', 'st06', 14, 635),
+('ct03', 'st06', 21, 1402),
+('ct04', 'st07', 0, 0),
+('ct05', 'st07', 4, 190),
+('ct06', 'st07', 99, 1673),
+('ct07', 'st08', 25, 687),
+('ct08', 'st08', 14, 251),
+('ct09', 'st08', 216, 1803),
+('ct10', 'st09', 82, 729),
+('ct11', 'st09', 51, 1006),
+('ct12', 'st09', 82, 196),
+('ct13', 'st10', 60, 2800),
+('ct14', 'st10', 52, 2589),
+('ct15', 'st10', 69, 5402);
 
 -- --------------------------------------------------------
 
@@ -78,6 +138,33 @@ CREATE TABLE `driver` (
   `plateNumber` varchar(20) NOT NULL,
   `staffID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `driver`
+--
+
+INSERT INTO `driver` (`extID`, `plateNumber`, `staffID`) VALUES
+('ex11', 'SCT 0983', 'st10'),
+('ex12', 'SCT 4738', 'st07'),
+('ex13', 'SCT 5123', 'st07'),
+('ex14', 'SCT 5123', 'st07'),
+('ex15', 'SCT 6723', 'st09'),
+('ex16', 'SCT 6748', 'st08'),
+('ex17', 'SCT 7380', 'st07'),
+('ex18', 'SCT 7380', 'st07'),
+('ex19', 'SCT 7912', 'st06'),
+('ex20', 'SCT 8123', 'st06'),
+('ex21', 'SCT 8132', 'st07'),
+('ex22', 'SCT 8192', 'st08'),
+('ex23', 'SCT 8192', 'st08'),
+('ex24', 'SCT 8888', 'st10'),
+('ex10', 'SCT 8888', 'st10'),
+('ex25', 'SCT 8889', 'st10'),
+('ex26', 'SCT 8889', 'st10'),
+('ex27', 'SCT 8890', 'st10'),
+('ex28', 'SCT 8913', 'st09'),
+('ex29', 'SCT 6748', 'st08'),
+('ex30', 'SCT 6723', 'st09');
 
 -- --------------------------------------------------------
 
@@ -92,6 +179,52 @@ CREATE TABLE `external` (
   `gender` varchar(10) NOT NULL,
   `age` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `external`
+--
+
+INSERT INTO `external` (`extID`, `name`, `phone`, `gender`, `age`) VALUES
+('ex01', 'John D. Reid', '7738379458', 'male', 76),
+('ex02', 'Christine T. Loh', '5086301617', 'female', 36),
+('ex03', 'Frank Price', '3234653596', 'male', 34),
+('ex04', 'Derek Mont', '8040058495', 'male', 54),
+('ex05', 'Maria Williams', '7829103901', 'female', 27),
+('ex06', 'Jacquelyn', '5082437912', 'female', 44),
+('ex07', 'Bokonono', '2523930185', 'male', 37),
+('ex08', 'Eddie Oo', '2099755530', 'male', 25),
+('ex09', 'Amy Wiggins', '2485576633', 'female', 33),
+('ex10', 'Bob Cain', '8156746406', 'male', 42),
+('ex11', 'Richard Adams', '6064392056', 'male', 36),
+('ex12', 'Monica March', '6207666516', 'female', 29),
+('ex13', 'Ryan Onjo', '5732985180', 'male', 41),
+('ex14', 'Lucy Ann', '6623901843', 'female', 28),
+('ex15', 'Marion B. Bunch', '912-601-4648', 'female', 35),
+('ex16', 'Geraldine M. Henderson', '425-709-9363', 'female', 61),
+('ex17', 'Dorothy R. Smith', '361-961-1086', 'female', 54),
+('ex18', 'Rose Frewin', '614-874-8053', 'female', 43),
+('ex19', 'Maddison Cunningham', '079 1772 6803', 'female', 60),
+('ex20', 'Seth Leggatt', '070 3611 9788', 'male', 45),
+('ex21', 'Fiacre Galarneau', '077 7564 1571', 'male', 36),
+('ex22', 'Ansel Corbin', '070 0736 4854', 'male', 45),
+('ex23', 'Fortunata Bergamaschi', '070 6230 6088', 'female', 44),
+('ex24', 'Maria Lorenzo', '077 5363 4712', 'female', 31),
+('ex25', 'Franco Milanesi', '077 3995 9360', 'male', 34),
+('ex26', 'Ildebrando Lucchese', '070 1221 7639', 'male', 26),
+('ex27', 'Ida Loggia', '078 4345 2818', 'female', 58),
+('ex28', 'Xavier Gauvin', '079 0664 1586', 'male', 37),
+('ex29', 'Tyler Collins', '701 6521 4746\r\n', 'male', 22),
+('ex30', 'Kody Jones', '406 6557 2356', 'male', 32),
+('ex31', 'Virginia M. Brower', '616 2307 1594', 'female', 33),
+('ex32', 'Christine T. Nissen', '337 1262 3257', 'female', 24),
+('ex33', 'Ensio Juva', '071 3029 7683', 'male', 31),
+('ex34', 'Erik Baum', '070 8894 5606', 'male', 22),
+('ex35', 'Birgit Fischer', '079 0052 8442', 'female', 19),
+('ex36', 'Matteo Toscani', '070 5800 6541', 'male', 40),
+('ex37', 'Virgilia Panicucci', '078 4622 4430', 'female', 28),
+('ex38', 'Gianetto Siciliani', '079 5029 9372', 'male', 33),
+('ex39', 'Lushikatome', '077 1204 7642', 'male', 26),
+('ex40', 'Dionisia Napolitani', '078 2127 9883', 'female', 42);
 
 -- --------------------------------------------------------
 
@@ -121,6 +254,17 @@ CREATE TABLE `manager` (
   `staffID` varchar(100) NOT NULL,
   `officeID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`staffID`, `officeID`) VALUES
+('st06', 'of01'),
+('st07', 'of02'),
+('st08', 'of03'),
+('st09', 'of04'),
+('st10', 'of05');
 
 -- --------------------------------------------------------
 
@@ -156,6 +300,22 @@ CREATE TABLE `owner` (
   `staffID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `owner`
+--
+
+INSERT INTO `owner` (`extID`, `staffID`) VALUES
+('ex01', 'st06'),
+('ex02', 'st06'),
+('ex03', 'st07'),
+('ex04', 'st07'),
+('ex05', 'st08'),
+('ex06', 'st08'),
+('ex07', 'st09'),
+('ex08', 'st09'),
+('ex09', 'st10'),
+('ex10', 'st10');
+
 -- --------------------------------------------------------
 
 --
@@ -167,6 +327,18 @@ CREATE TABLE `private` (
   `gender` varchar(10) NOT NULL,
   `age` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `private`
+--
+
+INSERT INTO `private` (`clientID`, `gender`, `age`) VALUES
+('cl02', 'cowo', 2),
+('cl03', 'male', 19),
+('cl04', 'female', 25),
+('cl07', 'male', 20),
+('cl08', 'male', 20),
+('cl09', 'female', 31);
 
 -- --------------------------------------------------------
 
@@ -206,7 +378,10 @@ INSERT INTO `staff` (`staffID`, `name`, `phone`, `gender`, `age`) VALUES
 ('st04', 'Wuilly', '0897685938', 'male', 43),
 ('st05', 'Justin', '08928319237', 'male', 32),
 ('st06', 'Noah', '08293148574', 'male', 28),
-('st07', 'Vani', '08931884273', 'female', 42);
+('st07', 'Vani', '08931884273', 'female', 42),
+('st08', 'Jordanatha', '089627888389', 'male', 18),
+('st09', 'Archel Taneka', '08128071999', 'male', 19),
+('st10', 'Adrian Alexander', '08128071988', 'male', 19);
 
 -- --------------------------------------------------------
 
@@ -220,6 +395,26 @@ CREATE TABLE `taxi` (
   `color` varchar(10) NOT NULL,
   `extID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `taxi`
+--
+
+INSERT INTO `taxi` (`plateNumber`, `type`, `color`, `extID`) VALUES
+('SCT 0983', 'Smart', 'blue', 'ex09'),
+('SCT 4738', 'Toyota Camry', 'purple', 'ex04'),
+('SCT 5123', 'Nissan March', 'yellow', 'ex03'),
+('SCT 6723', 'Fiat Panda', 'white', 'ex07'),
+('SCT 6748', 'Citroen C1', 'black', 'ex06'),
+('SCT 7380', 'Toyota Yaris', 'black', 'ex10'),
+('SCT 7912', 'VW Golf', 'silver', 'ex02'),
+('SCT 8123', 'Smart', 'green', 'ex01'),
+('SCT 8132', 'Mitsubishi Mirage', 'brown', 'ex03'),
+('SCT 8192', 'AUDI A4', 'orange', 'ex05'),
+('SCT 8888', 'Chevrolet Camaro', 'purple', 'ex10'),
+('SCT 8889', 'Chevrolet Corvette Stingray', 'pink', 'ex10'),
+('SCT 8890', 'Chevrolet Volt', 'grey', 'ex10'),
+('SCT 8913', 'Peugeot 308', 'red', 'ex08');
 
 --
 -- Indexes for dumped tables
@@ -236,7 +431,8 @@ ALTER TABLE `admin`
 -- Indexes for table `business`
 --
 ALTER TABLE `business`
-  ADD KEY `contractID` (`contractID`);
+  ADD KEY `contractID` (`contractID`),
+  ADD KEY `clientID` (`clientID`);
 
 --
 -- Indexes for table `client`
@@ -248,7 +444,8 @@ ALTER TABLE `client`
 -- Indexes for table `contract`
 --
 ALTER TABLE `contract`
-  ADD PRIMARY KEY (`contractID`);
+  ADD PRIMARY KEY (`contractID`),
+  ADD KEY `staffID` (`staffID`);
 
 --
 -- Indexes for table `driver`
@@ -334,7 +531,14 @@ ALTER TABLE `admin`
 -- Constraints for table `business`
 --
 ALTER TABLE `business`
-  ADD CONSTRAINT `business_ibfk_1` FOREIGN KEY (`contractID`) REFERENCES `contract` (`contractID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `business_ibfk_1` FOREIGN KEY (`contractID`) REFERENCES `contract` (`contractID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `business_ibfk_2` FOREIGN KEY (`clientID`) REFERENCES `client` (`clientID`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `contract`
+--
+ALTER TABLE `contract`
+  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`staffID`) REFERENCES `manager` (`staffID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `driver`
@@ -342,7 +546,7 @@ ALTER TABLE `business`
 ALTER TABLE `driver`
   ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`extID`) REFERENCES `external` (`extID`) ON UPDATE CASCADE,
   ADD CONSTRAINT `driver_ibfk_2` FOREIGN KEY (`plateNumber`) REFERENCES `taxi` (`plateNumber`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `driver_ibfk_3` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `driver_ibfk_3` FOREIGN KEY (`staffID`) REFERENCES `manager` (`staffID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `job`
@@ -365,7 +569,7 @@ ALTER TABLE `manager`
 --
 ALTER TABLE `owner`
   ADD CONSTRAINT `owner_ibfk_1` FOREIGN KEY (`extID`) REFERENCES `external` (`extID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `owner_ibfk_2` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `owner_ibfk_2` FOREIGN KEY (`staffID`) REFERENCES `manager` (`staffID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `private`
