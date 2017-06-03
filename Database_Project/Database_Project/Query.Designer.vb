@@ -23,11 +23,11 @@ Partial Class Query
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BoxQuery = New System.Windows.Forms.ComboBox()
+        Me.dgvTable = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvTable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -39,21 +39,24 @@ Partial Class Query
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Choose question:"
         '
-        'ComboBox1
+        'BoxQuery
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(109, 13)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(493, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.BoxQuery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.BoxQuery.FormattingEnabled = True
+        Me.BoxQuery.Items.AddRange(New Object() {"Choose item", "(a)" & Global.Microsoft.VisualBasic.ChrW(9) & "The names and phone numbers of the Managers at each office", "(b)" & Global.Microsoft.VisualBasic.ChrW(9) & "The names of all female drivers based in the Glasgow office. ", "(c)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total number of staff at each office.", "(d)" & Global.Microsoft.VisualBasic.ChrW(9) & "The details of all taxis at the Glasgow office.", "(e)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total number of W registered taxis.", "(f)" & Global.Microsoft.VisualBasic.ChrW(9) & "The number of drivers allocated to each taxi.", "(g)" & Global.Microsoft.VisualBasic.ChrW(9) & "The name and number of owners with more than one taxi.", "(h)" & Global.Microsoft.VisualBasic.ChrW(9) & "The full address of all business clients in Glasgow.", "(i)" & Global.Microsoft.VisualBasic.ChrW(9) & "The details of the current contracts with business clients in Glasgow.", "(j)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total number of private clients in each city.", "(k)" & Global.Microsoft.VisualBasic.ChrW(9) & "The details of jobs undertaken by a driver on a given day.", "(l)" & Global.Microsoft.VisualBasic.ChrW(9) & "The names of drivers who are over 55 years old.", "(m)" & Global.Microsoft.VisualBasic.ChrW(9) & "The names and numbers of private clients who hired a taxi in November 2016.", "(n)" & Global.Microsoft.VisualBasic.ChrW(9) & "The names and addresses of private clients who have hired a taxi more than th" &
+                "ree times.", "(o)" & Global.Microsoft.VisualBasic.ChrW(9) & "The average number of miles driven during a job.", "(p)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total number of jobs allocated to each car.", "(q)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total number of jobs allocated to each driver.", "(r)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total amount charged for each car in November 2016.", "(s)" & Global.Microsoft.VisualBasic.ChrW(9) & "The total number of jobs and miles driven for a given contract."})
+        Me.BoxQuery.Location = New System.Drawing.Point(109, 13)
+        Me.BoxQuery.Name = "BoxQuery"
+        Me.BoxQuery.Size = New System.Drawing.Size(493, 21)
+        Me.BoxQuery.TabIndex = 1
         '
-        'DataGridView1
+        'dgvTable
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(16, 55)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(586, 253)
-        Me.DataGridView1.TabIndex = 2
+        Me.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvTable.Location = New System.Drawing.Point(16, 55)
+        Me.dgvTable.Name = "dgvTable"
+        Me.dgvTable.Size = New System.Drawing.Size(586, 253)
+        Me.dgvTable.TabIndex = 2
         '
         'Button1
         '
@@ -80,20 +83,20 @@ Partial Class Query
         Me.ClientSize = New System.Drawing.Size(618, 352)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.dgvTable)
+        Me.Controls.Add(Me.BoxQuery)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Query"
         Me.Text = "Form1"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvTable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents BoxQuery As ComboBox
+    Friend WithEvents dgvTable As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
 End Class
