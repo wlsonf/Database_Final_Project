@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2017 at 12:04 PM
+-- Generation Time: Jun 03, 2017 at 06:16 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -50,19 +50,18 @@ INSERT INTO `admin` (`staffID`, `officeID`) VALUES
 
 CREATE TABLE `business` (
   `clientID` varchar(100) NOT NULL,
-  `contractID` varchar(100) NOT NULL,
-  `address` varchar(300) NOT NULL
+  `contractID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `business`
 --
 
-INSERT INTO `business` (`clientID`, `contractID`, `address`) VALUES
-('cl01', 'ct01', 'Jl. Teh Botol Sosro'),
-('cl05', 'ct02', 'Jl. Unilever Utara'),
-('cl06', 'ct03', 'Jl. Apple Selatan'),
-('cl10', 'ct04', 'Jl. Central Asia');
+INSERT INTO `business` (`clientID`, `contractID`) VALUES
+('cl01', 'ct01'),
+('cl05', 'ct02'),
+('cl06', 'ct03'),
+('cl10', 'ct04');
 
 -- --------------------------------------------------------
 
@@ -74,24 +73,25 @@ CREATE TABLE `client` (
   `clientID` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
-  `position` varchar(100) NOT NULL
+  `class` varchar(1) DEFAULT NULL,
+  `address` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`clientID`, `name`, `phone`, `position`) VALUES
-('cl01', 'Teh Botol', '0819849392', 'b'),
-('cl02', 'Kabel Data', '09128394030', 'p'),
-('cl03', 'Wilson Will', '08123949302', 'p'),
-('cl04', 'Semoura Coyy', '08123948392', 'p'),
-('cl05', 'Unilever', '08123949203', 'b'),
-('cl06', 'Apple', '08123494320', 'b'),
-('cl07', 'Teddy Hooo', '08158393201', 'p'),
-('cl08', 'Tono Oye', '089917238884', 'p'),
-('cl09', 'Ono Oo', '089888399282', 'p'),
-('cl10', 'BCA', '0213444555', 'b');
+INSERT INTO `client` (`clientID`, `name`, `phone`, `class`, `address`) VALUES
+('cl01', 'Teh Botol', '0819849392', 'b', 'Jl. Teh Botol Sosro'),
+('cl02', 'Kabel Data', '09128394030', 'p', 'Jl. Kabel Data Kenceng'),
+('cl03', 'Wilson Will', '08123949302', 'p', 'Jl. MOI'),
+('cl04', 'Semoura Coyy', '08123948392', 'p', 'Jl. Gatau Namanya Keren'),
+('cl05', 'Unilever', '08123949203', 'b', 'Jl. Unilever Utara'),
+('cl06', 'Apple', '08123494320', 'b', 'Jl. Apple Selatan'),
+('cl07', 'Teddy Hooo', '08158393201', 'p', 'Jl. Ponti'),
+('cl08', 'Tono Oye', '089917238884', 'p', 'Jl. Tonooo'),
+('cl09', 'Ono Oo', '089888399282', 'p', 'Jl. Onoooo'),
+('cl10', 'BCA', '0213444555', 'b', 'Jl. Central Asia');
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,17 @@ INSERT INTO `driver` (`extID`, `plateNumber`, `staffID`) VALUES
 ('ex27', 'SCT 8890', 'st10'),
 ('ex28', 'SCT 8913', 'st09'),
 ('ex29', 'SCT 6748', 'st08'),
-('ex30', 'SCT 6723', 'st09');
+('ex30', 'SCT 6723', 'st09'),
+('ex31', 'SCT 8123', 'st06'),
+('ex32', 'SCT 8123', 'st06'),
+('ex33', 'SCT 7912', 'st06'),
+('ex34', 'SCT 8123', 'st06'),
+('ex35', 'SCT 6812', 'st06'),
+('ex36', 'SCT 9987', 'st06'),
+('ex37', 'SCT 6812', 'st06'),
+('ex38', 'SCT 9987', 'st06'),
+('ex39', 'SCT 7912', 'st06'),
+('ex40', 'SCT 9987', 'st06');
 
 -- --------------------------------------------------------
 
@@ -235,14 +245,25 @@ INSERT INTO `external` (`extID`, `name`, `phone`, `gender`, `age`) VALUES
 CREATE TABLE `job` (
   `jobID` varchar(100) NOT NULL,
   `extID` varchar(100) NOT NULL,
-  `plateNumber` varchar(20) NOT NULL,
   `clientID` varchar(100) NOT NULL,
-  `contractID` varchar(100) NOT NULL,
   `date` date NOT NULL,
   `pTime` time NOT NULL,
   `dTime` time NOT NULL,
-  `pAddress` varchar(100) NOT NULL
+  `pAddress` varchar(100) NOT NULL,
+  `dAddress` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `job`
+--
+
+INSERT INTO `job` (`jobID`, `extID`, `clientID`, `date`, `pTime`, `dTime`, `pAddress`, `dAddress`) VALUES
+('jb001', 'ex20', 'cl01', '2017-06-02', '09:19:31', '09:33:14', 'fx', 'jwc'),
+('jb002', 'ex12', 'cl03', '2017-06-02', '09:27:48', '09:52:15', 'gbk', 'gi'),
+('jb003', 'ex31', 'cl05', '2017-06-02', '09:03:16', '09:21:35', 'senayan', 'kelapa gading'),
+('jb004', 'ex12', 'cl04', '2017-06-02', '10:07:19', '10:31:20', 'meruya', 'senayan'),
+('jb005', 'ex33', 'cl06', '2017-06-03', '02:22:14', '02:39:19', 'puri', 'meruya'),
+('jb006', 'ex33', 'cl08', '2017-06-03', '03:00:13', '03:17:07', 'pik', 'bandara');
 
 -- --------------------------------------------------------
 
@@ -325,20 +346,21 @@ INSERT INTO `owner` (`extID`, `staffID`) VALUES
 CREATE TABLE `private` (
   `clientID` varchar(100) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `age` int(11) NOT NULL
+  `age` int(11) NOT NULL,
+  `staffID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `private`
 --
 
-INSERT INTO `private` (`clientID`, `gender`, `age`) VALUES
-('cl02', 'cowo', 2),
-('cl03', 'male', 19),
-('cl04', 'female', 25),
-('cl07', 'male', 20),
-('cl08', 'male', 20),
-('cl09', 'female', 31);
+INSERT INTO `private` (`clientID`, `gender`, `age`, `staffID`) VALUES
+('cl02', 'male', 2, 'st06'),
+('cl03', 'male', 19, 'st06'),
+('cl04', 'female', 25, 'st07'),
+('cl07', 'male', 20, 'st07'),
+('cl08', 'male', 20, 'st08'),
+('cl09', 'female', 31, 'st09');
 
 -- --------------------------------------------------------
 
@@ -352,6 +374,18 @@ CREATE TABLE `receipt` (
   `status` varchar(100) NOT NULL,
   `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `receipt`
+--
+
+INSERT INTO `receipt` (`jobID`, `mileage`, `status`, `description`) VALUES
+('jb001', 12, 'succeed', 'ok'),
+('jb002', 7, 'succeed', 'ok'),
+('jb003', 9, 'succeed', 'ok'),
+('jb004', 15, 'succeed', 'ok'),
+('jb005', 20, 'succeed', 'ok'),
+('jb006', 14, 'succeed', 'ok');
 
 -- --------------------------------------------------------
 
@@ -406,6 +440,7 @@ INSERT INTO `taxi` (`plateNumber`, `type`, `color`, `extID`) VALUES
 ('SCT 5123', 'Nissan March', 'yellow', 'ex03'),
 ('SCT 6723', 'Fiat Panda', 'white', 'ex07'),
 ('SCT 6748', 'Citroen C1', 'black', 'ex06'),
+('SCT 6812', 'Smart', 'orange', 'ex01'),
 ('SCT 7380', 'Toyota Yaris', 'black', 'ex10'),
 ('SCT 7912', 'VW Golf', 'silver', 'ex02'),
 ('SCT 8123', 'Smart', 'green', 'ex01'),
@@ -414,7 +449,8 @@ INSERT INTO `taxi` (`plateNumber`, `type`, `color`, `extID`) VALUES
 ('SCT 8888', 'Chevrolet Camaro', 'purple', 'ex10'),
 ('SCT 8889', 'Chevrolet Corvette Stingray', 'pink', 'ex10'),
 ('SCT 8890', 'Chevrolet Volt', 'grey', 'ex10'),
-('SCT 8913', 'Peugeot 308', 'red', 'ex08');
+('SCT 8913', 'Peugeot 308', 'red', 'ex08'),
+('SCT 9987', 'AUDI A4', 'white', 'ex02');
 
 --
 -- Indexes for dumped tables
@@ -467,9 +503,7 @@ ALTER TABLE `external`
 ALTER TABLE `job`
   ADD PRIMARY KEY (`jobID`),
   ADD KEY `extID` (`extID`),
-  ADD KEY `plateNumber` (`plateNumber`),
-  ADD KEY `clientID` (`clientID`),
-  ADD KEY `contractID` (`contractID`);
+  ADD KEY `clientID` (`clientID`);
 
 --
 -- Indexes for table `manager`
@@ -495,7 +529,8 @@ ALTER TABLE `owner`
 -- Indexes for table `private`
 --
 ALTER TABLE `private`
-  ADD KEY `clientID` (`clientID`);
+  ADD KEY `clientID` (`clientID`),
+  ADD KEY `staffID` (`staffID`);
 
 --
 -- Indexes for table `receipt`
@@ -552,10 +587,8 @@ ALTER TABLE `driver`
 -- Constraints for table `job`
 --
 ALTER TABLE `job`
-  ADD CONSTRAINT `job_ibfk_1` FOREIGN KEY (`extID`) REFERENCES `external` (`extID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `job_ibfk_2` FOREIGN KEY (`plateNumber`) REFERENCES `taxi` (`plateNumber`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `job_ibfk_3` FOREIGN KEY (`clientID`) REFERENCES `client` (`clientID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `job_ibfk_4` FOREIGN KEY (`contractID`) REFERENCES `contract` (`contractID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `job_ibfk_1` FOREIGN KEY (`extID`) REFERENCES `driver` (`extID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `job_ibfk_2` FOREIGN KEY (`clientID`) REFERENCES `client` (`clientID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `manager`
@@ -575,7 +608,8 @@ ALTER TABLE `owner`
 -- Constraints for table `private`
 --
 ALTER TABLE `private`
-  ADD CONSTRAINT `private_ibfk_1` FOREIGN KEY (`clientID`) REFERENCES `client` (`clientID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `private_ibfk_1` FOREIGN KEY (`clientID`) REFERENCES `client` (`clientID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `private_ibfk_2` FOREIGN KEY (`staffID`) REFERENCES `manager` (`staffID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `receipt`
