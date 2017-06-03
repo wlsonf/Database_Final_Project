@@ -24,10 +24,10 @@ Partial Class Staff_LoginForm
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ID_txt = New System.Windows.Forms.TextBox()
+        Me.Password_txt = New System.Windows.Forms.TextBox()
+        Me.LoginButt = New System.Windows.Forms.Button()
+        Me.BackButt = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -48,48 +48,48 @@ Partial Class Staff_LoginForm
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Password"
         '
-        'TextBox1
+        'ID_txt
         '
-        Me.TextBox1.Location = New System.Drawing.Point(123, 30)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.ID_txt.Location = New System.Drawing.Point(123, 30)
+        Me.ID_txt.Name = "ID_txt"
+        Me.ID_txt.Size = New System.Drawing.Size(100, 20)
+        Me.ID_txt.TabIndex = 2
         '
-        'TextBox2
+        'Password_txt
         '
-        Me.TextBox2.Location = New System.Drawing.Point(123, 70)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.Password_txt.Location = New System.Drawing.Point(123, 70)
+        Me.Password_txt.Name = "Password_txt"
+        Me.Password_txt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.Password_txt.Size = New System.Drawing.Size(100, 20)
+        Me.Password_txt.TabIndex = 3
         '
-        'Button1
+        'LoginButt
         '
-        Me.Button1.Location = New System.Drawing.Point(148, 138)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Login"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.LoginButt.Location = New System.Drawing.Point(148, 138)
+        Me.LoginButt.Name = "LoginButt"
+        Me.LoginButt.Size = New System.Drawing.Size(75, 23)
+        Me.LoginButt.TabIndex = 4
+        Me.LoginButt.Text = "Login"
+        Me.LoginButt.UseVisualStyleBackColor = True
         '
-        'Button2
+        'BackButt
         '
-        Me.Button2.Location = New System.Drawing.Point(148, 167)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Back"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BackButt.Location = New System.Drawing.Point(148, 167)
+        Me.BackButt.Name = "BackButt"
+        Me.BackButt.Size = New System.Drawing.Size(75, 23)
+        Me.BackButt.TabIndex = 5
+        Me.BackButt.Text = "Back"
+        Me.BackButt.UseVisualStyleBackColor = True
         '
         'Staff_LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(367, 261)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.BackButt)
+        Me.Controls.Add(Me.LoginButt)
+        Me.Controls.Add(Me.Password_txt)
+        Me.Controls.Add(Me.ID_txt)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Staff_LoginForm"
@@ -101,8 +101,8 @@ Partial Class Staff_LoginForm
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents ID_txt As TextBox
+    Friend WithEvents Password_txt As TextBox
+    Friend WithEvents LoginButt As Button
+    Friend WithEvents BackButt As Button
 End Class

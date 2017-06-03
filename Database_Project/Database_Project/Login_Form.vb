@@ -12,25 +12,32 @@
     End Sub
 
     Private Sub LoginButt_Click(sender As Object, e As EventArgs) Handles LoginButt.Click
+        Dim Main = New Main
+
         If PhoneNumberTxt.Text = "admin" And PasswordTxt.Text = "admin" Then
             MsgBox("Logged In", MsgBoxStyle.Information, "Login")
+            Main.Show()
+            Me.Visible = False
         Else
-            If PhoneNumberTxt.Text = "" And PasswordTxt.Text = "" Then
-                MsgBox("Incorrect Phone / Password", MsgBoxStyle.Critical, "ERROR")
+            If PhoneNumberTxt.Text = "" Then
+                MsgBox("Phone Number cannot be empty", MsgBoxStyle.Critical, "ERROR")
+            Else
+                If PasswordTxt.Text = "" Then
+                    MsgBox("Password cannot be empty", MsgBoxStyle.Critical, "ERROR")
+                Else
+                    MsgBox("Wrong Phone Number / Password", MsgBoxStyle.Critical, "ERROR")
+                End If
             End If
         End If
-        Dim Main = New Main
-        Me.Visible = False
-        Main.Show()
     End Sub
 
     Private Sub ExitButt_Click(sender As Object, e As EventArgs) Handles ExitButt.Click
+        MsgBox("Bye", MsgBoxStyle.OkOnly, "FastCab")
         Me.Close()
     End Sub
 
     Private Sub SignUpButt_Click(sender As Object, e As EventArgs) Handles SignUpButt.Click
         Dim Sign_Up = New Sign_Up
-        Me.Visible = False
-        Sign_Up.Visible = True
+        Sign_Up.ShowDialog()
     End Sub
 End Class

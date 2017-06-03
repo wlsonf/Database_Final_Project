@@ -28,8 +28,8 @@ Partial Class Sign_Up
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BackButt = New System.Windows.Forms.Button()
+        Me.SignUpButt = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -81,33 +81,32 @@ Partial Class Sign_Up
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
         Me.ComboBox1.TabIndex = 6
-        Me.ComboBox1.Text = "Personal"
         '
-        'Button4
+        'BackButt
         '
-        Me.Button4.Location = New System.Drawing.Point(16, 136)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(89, 23)
-        Me.Button4.TabIndex = 9
-        Me.Button4.Text = "Back"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.BackButt.Location = New System.Drawing.Point(16, 136)
+        Me.BackButt.Name = "BackButt"
+        Me.BackButt.Size = New System.Drawing.Size(89, 23)
+        Me.BackButt.TabIndex = 9
+        Me.BackButt.Text = "Back"
+        Me.BackButt.UseVisualStyleBackColor = True
         '
-        'Button1
+        'SignUpButt
         '
-        Me.Button1.Location = New System.Drawing.Point(174, 136)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Sign Up"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.SignUpButt.Location = New System.Drawing.Point(174, 136)
+        Me.SignUpButt.Name = "SignUpButt"
+        Me.SignUpButt.Size = New System.Drawing.Size(89, 23)
+        Me.SignUpButt.TabIndex = 10
+        Me.SignUpButt.Text = "Sign Up"
+        Me.SignUpButt.UseVisualStyleBackColor = True
         '
         'Sign_Up
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 171)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.SignUpButt)
+        Me.Controls.Add(Me.BackButt)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox1)
@@ -127,6 +126,6 @@ Partial Class Sign_Up
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BackButt As Button
+    Friend WithEvents SignUpButt As Button
 End Class
