@@ -1,0 +1,15 @@
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\Database_Project.exe.config
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\Database_Project.exe
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\Database_Project.pdb
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\Database_Project.xml
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.vbprojResolveAssemblyReference.cache
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Login_Form.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Main.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Query.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Resources.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Sign_Up.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Staff_LoginForm.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.vbproj.GenerateResource.Cache
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.exe
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.xml
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.pdb
