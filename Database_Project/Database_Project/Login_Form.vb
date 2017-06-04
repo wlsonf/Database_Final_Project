@@ -37,33 +37,36 @@ Public Class Login_Form
         Dim comm As MySqlCommand
         Dim reader As MySqlDataReader
         'Dim str As String = "server=localhost; uid=root; pwd=; database=fastcab;"
-        Dim query As String = "SELECT * FROM client WHERE phone = '" & PhoneNumberTxt.Text & "' and password = '" & PasswordTxt.Text & "'"
+        Dim query As String = "SELECT * FROM client WHERE phone = '" & PhoneNumberTxt.Text & "'"
 
         Try
             conn.Open()
             comm = New MySqlCommand(query, conn)
             reader = comm.ExecuteReader
-            While reader.Read
-                If reader("phone").ToString = PhoneNumberTxt.Text And reader("password").ToString = PasswordTxt.Text Then
-                    UserYa.ClientID = reader("clientID").ToString
-                    UserYa.Name = reader("name").ToString
-                    UserYa.Phone = reader("phone").ToString
-                    UserYa.ClassYa = reader("class").ToString
-                    UserYa.Address = reader("address").ToString
-                    Main.UserYa = UserYa
-                    MessageBox.Show("Success")
-                    conn.Close()
-                    Main.Show()
-                    Me.Dispose()
-                    Return
-                Else
-                    MessageBox.Show("Wrong Password!")
-                    Exit Sub
-                End If
-            End While
+
+            If reader("password").ToString = PasswordTxt.Text Then
+                UserYa.ClientID = reader("clientID").ToString
+                UserYa.Name = reader("name").ToString
+                UserYa.Phone = reader("phone").ToString
+                UserYa.ClassYa = reader("class").ToString
+                UserYa.Address = reader("address").ToString
+                Main.UserYa = UserYa
+                MessageBox.Show("Success")
+                conn.Close()
+                Main.Show()
+                Me.Dispose()
+                Return
+                'ElseIf 
+
+            Else
+                MessageBox.Show("Wrong Password!")
+                Exit Sub
+            End If
+
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
+            MessageBox.Show("Wrong PhoneNumber")
         End Try
 
     End Sub

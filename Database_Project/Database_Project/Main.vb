@@ -2,6 +2,8 @@
 
 Public Class Main
     Public UserYa As ClientYa = New ClientYa()
+    Public UserType As String
+
 
     Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 

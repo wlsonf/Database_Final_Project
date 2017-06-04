@@ -95,6 +95,12 @@
     <Compile Include="Login_Form.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Order_Form.Designer.vb">
+      <DependentUpon>Order_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Private_Sign_Up.Designer.vb">
       <DependentUpon>Private_Sign_Up.vb</DependentUpon>
     </Compile>
