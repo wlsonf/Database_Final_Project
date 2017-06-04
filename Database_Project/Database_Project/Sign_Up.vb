@@ -36,8 +36,7 @@ Public Class Sign_Up
 
 
     Private Sub SignUpButt_Click(sender As Object, e As EventArgs) Handles SignUpButt.Click
-        'Me.Close()
-        'Dim reader As MySqlDataReader
+
 
         Dim a As String
         Dim nextID As String = "cl" & (get_bottomest_id() + 1).ToString()
@@ -68,16 +67,13 @@ Public Class Sign_Up
             End If
 
             conn.Close()
-            Me.Close()
+            Me.Visible = False
+            Login_Form.Visible = True
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
 
-    End Sub
-
-    Private Sub BackButt_Click(sender As Object, e As EventArgs) Handles BackButt.Click
-        Me.Close()
     End Sub
 
     Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing

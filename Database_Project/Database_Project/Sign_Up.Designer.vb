@@ -28,7 +28,6 @@ Partial Class Sign_Up
         Me.NameTxt = New System.Windows.Forms.TextBox()
         Me.PhoneTxt = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.BackButt = New System.Windows.Forms.Button()
         Me.SignUpButt = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PasswordTxt = New System.Windows.Forms.TextBox()
@@ -87,18 +86,9 @@ Partial Class Sign_Up
         Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
         Me.ComboBox1.TabIndex = 6
         '
-        'BackButt
-        '
-        Me.BackButt.Location = New System.Drawing.Point(16, 182)
-        Me.BackButt.Name = "BackButt"
-        Me.BackButt.Size = New System.Drawing.Size(89, 23)
-        Me.BackButt.TabIndex = 9
-        Me.BackButt.Text = "Back"
-        Me.BackButt.UseVisualStyleBackColor = True
-        '
         'SignUpButt
         '
-        Me.SignUpButt.Location = New System.Drawing.Point(174, 182)
+        Me.SignUpButt.Location = New System.Drawing.Point(100, 188)
         Me.SignUpButt.Name = "SignUpButt"
         Me.SignUpButt.Size = New System.Drawing.Size(89, 23)
         Me.SignUpButt.TabIndex = 10
@@ -118,6 +108,7 @@ Partial Class Sign_Up
         '
         Me.PasswordTxt.Location = New System.Drawing.Point(100, 112)
         Me.PasswordTxt.Name = "PasswordTxt"
+        Me.PasswordTxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTxt.Size = New System.Drawing.Size(99, 20)
         Me.PasswordTxt.TabIndex = 12
         '
@@ -141,13 +132,12 @@ Partial Class Sign_Up
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(281, 223)
+        Me.ClientSize = New System.Drawing.Size(233, 224)
         Me.Controls.Add(Me.AddressTxt)
         Me.Controls.Add(Me.lblAddress)
         Me.Controls.Add(Me.PasswordTxt)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.SignUpButt)
-        Me.Controls.Add(Me.BackButt)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.PhoneTxt)
         Me.Controls.Add(Me.NameTxt)
@@ -167,7 +157,6 @@ Partial Class Sign_Up
     Friend WithEvents NameTxt As TextBox
     Friend WithEvents PhoneTxt As TextBox
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents BackButt As Button
     Friend WithEvents SignUpButt As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents PasswordTxt As TextBox
