@@ -52,7 +52,7 @@ Public Class Query
             Case 0
                 Return
             Case 1
-                query = "SELECT o.name, s.name, s.phone FROM manager m  
+                query = "SELECT o.name AS Office_Name, s.name AS Name, s.phone AS Phone FROM manager m  
                         JOIN staff s ON s.staffID = m.staffID
                         JOIN office o ON o.officeID = m.officeID;"
             Case 2
