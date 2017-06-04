@@ -32,12 +32,14 @@ Partial Class Sign_Up
         Me.SignUpButt = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PasswordTxt = New System.Windows.Forms.TextBox()
+        Me.lblAddress = New System.Windows.Forms.Label()
+        Me.AddressTxt = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 25)
+        Me.Label1.Location = New System.Drawing.Point(14, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 0
@@ -46,7 +48,7 @@ Partial Class Sign_Up
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 56)
+        Me.Label2.Location = New System.Drawing.Point(14, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(78, 13)
         Me.Label2.TabIndex = 1
@@ -55,7 +57,7 @@ Partial Class Sign_Up
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 110)
+        Me.Label3.Location = New System.Drawing.Point(14, 143)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 2
@@ -70,23 +72,24 @@ Partial Class Sign_Up
         '
         'PhoneTxt
         '
-        Me.PhoneTxt.Location = New System.Drawing.Point(100, 56)
+        Me.PhoneTxt.Location = New System.Drawing.Point(100, 54)
         Me.PhoneTxt.Name = "PhoneTxt"
         Me.PhoneTxt.Size = New System.Drawing.Size(100, 20)
         Me.PhoneTxt.TabIndex = 5
         '
         'ComboBox1
         '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Private", "Business"})
-        Me.ComboBox1.Location = New System.Drawing.Point(100, 110)
+        Me.ComboBox1.Location = New System.Drawing.Point(100, 139)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
         Me.ComboBox1.TabIndex = 6
         '
         'BackButt
         '
-        Me.BackButt.Location = New System.Drawing.Point(16, 161)
+        Me.BackButt.Location = New System.Drawing.Point(16, 188)
         Me.BackButt.Name = "BackButt"
         Me.BackButt.Size = New System.Drawing.Size(89, 23)
         Me.BackButt.TabIndex = 9
@@ -95,7 +98,7 @@ Partial Class Sign_Up
         '
         'SignUpButt
         '
-        Me.SignUpButt.Location = New System.Drawing.Point(174, 161)
+        Me.SignUpButt.Location = New System.Drawing.Point(174, 188)
         Me.SignUpButt.Name = "SignUpButt"
         Me.SignUpButt.Size = New System.Drawing.Size(89, 23)
         Me.SignUpButt.TabIndex = 10
@@ -105,7 +108,7 @@ Partial Class Sign_Up
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 87)
+        Me.Label4.Location = New System.Drawing.Point(14, 114)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 11
@@ -113,16 +116,34 @@ Partial Class Sign_Up
         '
         'PasswordTxt
         '
-        Me.PasswordTxt.Location = New System.Drawing.Point(100, 83)
+        Me.PasswordTxt.Location = New System.Drawing.Point(100, 110)
         Me.PasswordTxt.Name = "PasswordTxt"
-        Me.PasswordTxt.Size = New System.Drawing.Size(100, 20)
+        Me.PasswordTxt.Size = New System.Drawing.Size(99, 20)
         Me.PasswordTxt.TabIndex = 12
+        '
+        'lblAddress
+        '
+        Me.lblAddress.AutoSize = True
+        Me.lblAddress.Location = New System.Drawing.Point(14, 86)
+        Me.lblAddress.Name = "lblAddress"
+        Me.lblAddress.Size = New System.Drawing.Size(45, 13)
+        Me.lblAddress.TabIndex = 13
+        Me.lblAddress.Text = "Address"
+        '
+        'AddressTxt
+        '
+        Me.AddressTxt.Location = New System.Drawing.Point(99, 82)
+        Me.AddressTxt.Name = "AddressTxt"
+        Me.AddressTxt.Size = New System.Drawing.Size(100, 20)
+        Me.AddressTxt.TabIndex = 14
         '
         'Sign_Up
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 226)
+        Me.ClientSize = New System.Drawing.Size(281, 229)
+        Me.Controls.Add(Me.AddressTxt)
+        Me.Controls.Add(Me.lblAddress)
         Me.Controls.Add(Me.PasswordTxt)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.SignUpButt)
@@ -150,4 +171,6 @@ Partial Class Sign_Up
     Friend WithEvents SignUpButt As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents PasswordTxt As TextBox
+    Friend WithEvents lblAddress As Label
+    Friend WithEvents AddressTxt As TextBox
 End Class

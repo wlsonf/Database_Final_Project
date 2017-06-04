@@ -1,6 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class Login_Form
+    Public UserYa As ClientYa = New ClientYa()
+
     Private Sub StaffLoginButt_Click(sender As Object, e As EventArgs) Handles StaffLoginButt.Click
         Dim Staff_LoginForm = New Staff_LoginForm
         Me.Visible = False
@@ -14,7 +16,7 @@ Public Class Login_Form
     End Sub
 
     Private Sub LoginButt_Click(sender As Object, e As EventArgs) Handles LoginButt.Click
-        Dim Main = New Main
+        Dim Main As Main = New Main()
 
         'If PhoneNumberTxt.Text = "admin" And PasswordTxt.Text = "admin" Then
         '    MsgBox("Logged In", MsgBoxStyle.Information, "Login")
@@ -31,23 +33,29 @@ Public Class Login_Form
         '        End If
         '    End If
         'End If
-        Dim conn As MySqlConnection
+        Dim conn As MySqlConnection = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
         Dim comm As MySqlCommand
         Dim reader As MySqlDataReader
         'Dim str As String = "server=localhost; uid=root; pwd=; database=fastcab;"
         Dim query As String = "SELECT * FROM client WHERE phone = '" & PhoneNumberTxt.Text & "' and password = '" & PasswordTxt.Text & "'"
 
         Try
-            conn = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
             conn.Open()
             comm = New MySqlCommand(query, conn)
             reader = comm.ExecuteReader
             While reader.Read
                 If reader("phone").ToString = PhoneNumberTxt.Text And reader("password").ToString = PasswordTxt.Text Then
+                    UserYa.ClientID = reader("clientID").ToString
+                    UserYa.Name = reader("name").ToString
+                    UserYa.Phone = reader("phone").ToString
+                    UserYa.ClassYa = reader("class").ToString
+                    UserYa.Address = reader("address").ToString
+                    Main.UserYa = UserYa
                     MessageBox.Show("Success")
-                    Me.Close()
-                    Main.Show()
                     conn.Close()
+                    Main.Show()
+                    Me.Dispose()
+                    Return
                 Else
                     MessageBox.Show("Wrong Password!")
                     Exit Sub

@@ -76,6 +76,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.vb" />
     <Compile Include="Login_Form.Designer.vb">
       <DependentUpon>Login_Form.vb</DependentUpon>
     </Compile>
