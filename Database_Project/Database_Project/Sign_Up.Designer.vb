@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Sign_Up
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Sign_Up
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -57,7 +57,7 @@ Partial Class Sign_Up
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 143)
+        Me.Label3.Location = New System.Drawing.Point(14, 145)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 2
@@ -82,14 +82,14 @@ Partial Class Sign_Up
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Private", "Business"})
-        Me.ComboBox1.Location = New System.Drawing.Point(100, 139)
+        Me.ComboBox1.Location = New System.Drawing.Point(100, 141)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
         Me.ComboBox1.TabIndex = 6
         '
         'BackButt
         '
-        Me.BackButt.Location = New System.Drawing.Point(16, 188)
+        Me.BackButt.Location = New System.Drawing.Point(16, 182)
         Me.BackButt.Name = "BackButt"
         Me.BackButt.Size = New System.Drawing.Size(89, 23)
         Me.BackButt.TabIndex = 9
@@ -98,7 +98,7 @@ Partial Class Sign_Up
         '
         'SignUpButt
         '
-        Me.SignUpButt.Location = New System.Drawing.Point(174, 188)
+        Me.SignUpButt.Location = New System.Drawing.Point(174, 182)
         Me.SignUpButt.Name = "SignUpButt"
         Me.SignUpButt.Size = New System.Drawing.Size(89, 23)
         Me.SignUpButt.TabIndex = 10
@@ -108,7 +108,7 @@ Partial Class Sign_Up
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 114)
+        Me.Label4.Location = New System.Drawing.Point(14, 116)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 11
@@ -116,7 +116,7 @@ Partial Class Sign_Up
         '
         'PasswordTxt
         '
-        Me.PasswordTxt.Location = New System.Drawing.Point(100, 110)
+        Me.PasswordTxt.Location = New System.Drawing.Point(100, 112)
         Me.PasswordTxt.Name = "PasswordTxt"
         Me.PasswordTxt.Size = New System.Drawing.Size(99, 20)
         Me.PasswordTxt.TabIndex = 12
@@ -141,7 +141,7 @@ Partial Class Sign_Up
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(281, 229)
+        Me.ClientSize = New System.Drawing.Size(281, 223)
         Me.Controls.Add(Me.AddressTxt)
         Me.Controls.Add(Me.lblAddress)
         Me.Controls.Add(Me.PasswordTxt)

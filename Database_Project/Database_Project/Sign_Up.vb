@@ -37,19 +37,36 @@ Public Class Sign_Up
 
     Private Sub SignUpButt_Click(sender As Object, e As EventArgs) Handles SignUpButt.Click
         'Me.Close()
-        Dim reader As MySqlDataReader
+        'Dim reader As MySqlDataReader
+
         Dim a As String
+        Dim nextID As String = "cl" & (get_bottomest_id() + 1).ToString()
         If ComboBox1.SelectedIndex = 0 Then
             a = "p"
         Else
             a = "b"
         End If
-        Dim queryADD As String = "INSERT INTO client VALUES ('cl" & (get_bottomest_id() + 1).ToString() & "','" & NameTxt.Text & "', '" & PhoneTxt.Text & "', '" & a & "' , '" & AddressTxt.Text & "', '" & PasswordTxt.Text & "')"
+        Dim queryADD As String = "INSERT INTO client VALUES ('" & nextID & "','" & NameTxt.Text & "', '" & PhoneTxt.Text & "', '" & a & "' , '" & AddressTxt.Text & "', '" & PasswordTxt.Text & "')"
         '                                                     clientID, name, phone, class, address, password
         Try
             conn.Open()
             comm = New MySqlCommand(queryADD, conn)
             comm.ExecuteNonQuery()
+            If ComboBox1.SelectedIndex = 0 Then
+                Dim Private_SU As Private_Sign_Up = New Private_Sign_Up()
+                UserYa.ClientID = nextID
+                UserYa.Name = NameTxt.Text
+                UserYa.Phone = PhoneTxt.Text
+                UserYa.ClassYa = a
+                UserYa.Address = AddressTxt.Text
+                Private_SU.UserYa = UserYa
+
+                Private_SU.Show()
+
+            Else
+                a = "b"
+            End If
+
             conn.Close()
             Me.Close()
 
@@ -62,4 +79,11 @@ Public Class Sign_Up
     Private Sub BackButt_Click(sender As Object, e As EventArgs) Handles BackButt.Click
         Me.Close()
     End Sub
+
+    Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        Application.Exit()
+
+    End Sub
+
 End Class

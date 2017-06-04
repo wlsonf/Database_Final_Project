@@ -77,10 +77,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.vb" />
+    <Compile Include="Business_Sign_Up.Designer.vb">
+      <DependentUpon>Business_Sign_Up.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Business_Sign_Up.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_Contract.Designer.vb">
+      <DependentUpon>Create_Contract.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Contract.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login_Form.Designer.vb">
       <DependentUpon>Login_Form.vb</DependentUpon>
     </Compile>
     <Compile Include="Login_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Private_Sign_Up.Designer.vb">
+      <DependentUpon>Private_Sign_Up.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Private_Sign_Up.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Query.vb">
@@ -125,11 +143,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Business_Sign_Up.resx">
+      <DependentUpon>Business_Sign_Up.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_Contract.resx">
+      <DependentUpon>Create_Contract.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Private_Sign_Up.resx">
+      <DependentUpon>Private_Sign_Up.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Query.resx">
       <DependentUpon>Query.vb</DependentUpon>

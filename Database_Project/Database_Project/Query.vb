@@ -91,4 +91,10 @@ Public Class Query
 
     End Sub
 
+    Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        Application.Exit()
+
+    End Sub
+
 End Class

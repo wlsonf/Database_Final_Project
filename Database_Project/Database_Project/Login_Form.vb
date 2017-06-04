@@ -75,6 +75,14 @@ Public Class Login_Form
 
     Private Sub SignUpButt_Click(sender As Object, e As EventArgs) Handles SignUpButt.Click
         Dim Sign_Up = New Sign_Up
-        Sign_Up.ShowDialog()
+        Sign_Up.Show()
+        Me.Dispose()
     End Sub
+
+    Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        Application.Exit()
+
+    End Sub
+
 End Class

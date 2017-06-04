@@ -65,7 +65,7 @@ Partial Class Staff_LoginForm
         '
         'LoginButt
         '
-        Me.LoginButt.Location = New System.Drawing.Point(148, 138)
+        Me.LoginButt.Location = New System.Drawing.Point(256, 30)
         Me.LoginButt.Name = "LoginButt"
         Me.LoginButt.Size = New System.Drawing.Size(75, 23)
         Me.LoginButt.TabIndex = 4
@@ -74,7 +74,7 @@ Partial Class Staff_LoginForm
         '
         'BackButt
         '
-        Me.BackButt.Location = New System.Drawing.Point(148, 167)
+        Me.BackButt.Location = New System.Drawing.Point(256, 65)
         Me.BackButt.Name = "BackButt"
         Me.BackButt.Size = New System.Drawing.Size(75, 23)
         Me.BackButt.TabIndex = 5
@@ -85,7 +85,7 @@ Partial Class Staff_LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(367, 261)
+        Me.ClientSize = New System.Drawing.Size(367, 115)
         Me.Controls.Add(Me.BackButt)
         Me.Controls.Add(Me.LoginButt)
         Me.Controls.Add(Me.Password_txt)

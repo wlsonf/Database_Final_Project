@@ -32,3 +32,6 @@ D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Databas
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.pdb
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\MySql.Data.dll
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\MySql.Data.xml
+D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Business_Sign_Up.resources
+D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Create_Contract.resources
+D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Private_Sign_Up.resources
