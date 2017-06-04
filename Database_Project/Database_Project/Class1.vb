@@ -5,3 +5,10 @@
     Public ClassYa As String
     Public Address As String
 End Class
+
+Public Class Contract
+    Public ContractID As String
+    Public StaffID As String
+    Public NumOfJob As Int32
+    Public TotalMilage As Int32
+End Class

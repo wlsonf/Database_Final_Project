@@ -36,7 +36,19 @@ Public Class Sign_Up
 
 
     Private Sub SignUpButt_Click(sender As Object, e As EventArgs) Handles SignUpButt.Click
-
+        If NameTxt.Text = "" Then
+            MessageBox.Show("Please enter your Name")
+            Return
+        ElseIf PhoneTxt.Text = "" Then
+            MessageBox.Show("Please enter your Phone number")
+            Return
+        ElseIf AddressTxt.Text = "" Then
+            MessageBox.Show("Please enter your address")
+            Return
+        ElseIf ComboBox1.SelectedItem = "" Then
+            MessageBox.Show("Please choose client class")
+            Return
+        End If
 
         Dim a As String
         Dim nextID As String = "cl" & (get_bottomest_id() + 1).ToString()
