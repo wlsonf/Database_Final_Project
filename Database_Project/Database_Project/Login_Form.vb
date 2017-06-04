@@ -43,6 +43,7 @@ Public Class Login_Form
             conn.Open()
             comm = New MySqlCommand(query, conn)
             reader = comm.ExecuteReader
+            reader.Read()
 
             If reader("password").ToString = PasswordTxt.Text Then
                 UserYa.ClientID = reader("clientID").ToString

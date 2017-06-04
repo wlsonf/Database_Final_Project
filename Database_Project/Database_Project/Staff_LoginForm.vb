@@ -10,32 +10,32 @@ Public Class Staff_LoginForm
         Dim conn As MySqlConnection
         Dim comm As MySqlCommand
         Dim reader As MySqlDataReader
-        Dim query As String = "SELECT * FROM staff WHERE staffID = '" & ID_txt.Text & "' and password = '" & Password_txt.Text & "'"
+        Dim query As String = "SELECT * FROM staff WHERE staffID = '" & ID_txt.Text & "'"
 
         Try
             conn = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
             conn.Open()
             comm = New MySqlCommand(query, conn)
             reader = comm.ExecuteReader
-            While reader.Read
-                If reader("staffID").ToString = ID_txt.Text And reader("password").ToString = Password_txt.Text Then
-                    StaffYa.ClientID = reader("staffID").ToString
-                    StaffYa.Name = reader("name").ToString
-                    StaffYa.Phone = reader("phone").ToString
-                    Main.UserYa = StaffYa
-                    MessageBox.Show("Success")
-                    conn.Close()
-                    Main.Show()
-                    Me.Dispose()
-                    Return
-                Else
-                    MessageBox.Show("Wrong Password!")
-                    Exit Sub
-                End If
-            End While
+            reader.Read()
+            If reader("password").ToString = Password_txt.Text Then
+                StaffYa.ClientID = reader("staffID").ToString
+                StaffYa.Name = reader("name").ToString
+                StaffYa.Phone = reader("phone").ToString
+                Main.UserYa = StaffYa
+                MessageBox.Show("Success")
+                conn.Close()
+                Main.Show()
+                Me.Dispose()
+                Return
+            Else
+                MessageBox.Show("Wrong Password!")
+                Exit Sub
+            End If
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
+            MessageBox.Show("")
         End Try
 
     End Sub
