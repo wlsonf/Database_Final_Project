@@ -37,7 +37,7 @@ Partial Class Login_Form
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(163, 12)
+        Me.Label1.Location = New System.Drawing.Point(80, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 17)
         Me.Label1.TabIndex = 0
@@ -46,7 +46,7 @@ Partial Class Login_Form
         '
         'LoginButt
         '
-        Me.LoginButt.Location = New System.Drawing.Point(244, 57)
+        Me.LoginButt.Location = New System.Drawing.Point(16, 139)
         Me.LoginButt.Name = "LoginButt"
         Me.LoginButt.Size = New System.Drawing.Size(89, 23)
         Me.LoginButt.TabIndex = 1
@@ -56,7 +56,7 @@ Partial Class Login_Form
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 88)
+        Me.Label2.Location = New System.Drawing.Point(13, 54)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(78, 13)
         Me.Label2.TabIndex = 2
@@ -65,7 +65,7 @@ Partial Class Login_Form
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 128)
+        Me.Label3.Location = New System.Drawing.Point(13, 94)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 3
@@ -73,14 +73,14 @@ Partial Class Login_Form
         '
         'PhoneNumberTxt
         '
-        Me.PhoneNumberTxt.Location = New System.Drawing.Point(98, 85)
+        Me.PhoneNumberTxt.Location = New System.Drawing.Point(97, 51)
         Me.PhoneNumberTxt.Name = "PhoneNumberTxt"
         Me.PhoneNumberTxt.Size = New System.Drawing.Size(100, 20)
         Me.PhoneNumberTxt.TabIndex = 4
         '
         'PasswordTxt
         '
-        Me.PasswordTxt.Location = New System.Drawing.Point(98, 128)
+        Me.PasswordTxt.Location = New System.Drawing.Point(97, 94)
         Me.PasswordTxt.Name = "PasswordTxt"
         Me.PasswordTxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTxt.Size = New System.Drawing.Size(100, 20)
@@ -88,7 +88,7 @@ Partial Class Login_Form
         '
         'StaffLoginButt
         '
-        Me.StaffLoginButt.Location = New System.Drawing.Point(244, 86)
+        Me.StaffLoginButt.Location = New System.Drawing.Point(252, 12)
         Me.StaffLoginButt.Name = "StaffLoginButt"
         Me.StaffLoginButt.Size = New System.Drawing.Size(89, 23)
         Me.StaffLoginButt.TabIndex = 6
@@ -97,7 +97,7 @@ Partial Class Login_Form
         '
         'ReqButt
         '
-        Me.ReqButt.Location = New System.Drawing.Point(244, 115)
+        Me.ReqButt.Location = New System.Drawing.Point(252, 41)
         Me.ReqButt.Name = "ReqButt"
         Me.ReqButt.Size = New System.Drawing.Size(89, 23)
         Me.ReqButt.TabIndex = 7
@@ -106,7 +106,7 @@ Partial Class Login_Form
         '
         'ExitButt
         '
-        Me.ExitButt.Location = New System.Drawing.Point(244, 145)
+        Me.ExitButt.Location = New System.Drawing.Point(252, 70)
         Me.ExitButt.Name = "ExitButt"
         Me.ExitButt.Size = New System.Drawing.Size(89, 23)
         Me.ExitButt.TabIndex = 8
@@ -115,7 +115,7 @@ Partial Class Login_Form
         '
         'SignUpButt
         '
-        Me.SignUpButt.Location = New System.Drawing.Point(244, 175)
+        Me.SignUpButt.Location = New System.Drawing.Point(120, 139)
         Me.SignUpButt.Name = "SignUpButt"
         Me.SignUpButt.Size = New System.Drawing.Size(89, 23)
         Me.SignUpButt.TabIndex = 9
@@ -126,7 +126,7 @@ Partial Class Login_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(353, 229)
+        Me.ClientSize = New System.Drawing.Size(353, 173)
         Me.Controls.Add(Me.SignUpButt)
         Me.Controls.Add(Me.ExitButt)
         Me.Controls.Add(Me.ReqButt)
