@@ -4,6 +4,4 @@
     Public Phone As String
     Public ClassYa As String
     Public Address As String
-
-
 End Class

@@ -2,6 +2,8 @@
 
 
 Public Class Staff_LoginForm
+    Public StaffYa As ClientYa = New ClientYa()
+
     Private Sub LoginButt_Click(sender As Object, e As EventArgs) Handles LoginButt.Click
         Dim Main = New Main
 
@@ -17,10 +19,15 @@ Public Class Staff_LoginForm
             reader = comm.ExecuteReader
             While reader.Read
                 If reader("staffID").ToString = ID_txt.Text And reader("password").ToString = Password_txt.Text Then
+                    StaffYa.ClientID = reader("staffID").ToString
+                    StaffYa.Name = reader("name").ToString
+                    StaffYa.Phone = reader("phone").ToString
+                    Main.UserYa = StaffYa
                     MessageBox.Show("Success")
-                    Me.Close()
-                    Main.Show()
                     conn.Close()
+                    Main.Show()
+                    Me.Dispose()
+                    Return
                 Else
                     MessageBox.Show("Wrong Password!")
                     Exit Sub

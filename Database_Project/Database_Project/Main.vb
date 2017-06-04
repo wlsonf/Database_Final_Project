@@ -21,6 +21,6 @@ Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MessageBox.Show(UserYa.Address)
+        MessageBox.Show(UserYa.ClientID)
     End Sub
 End Class
