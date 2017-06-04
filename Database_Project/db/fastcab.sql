@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2017 at 06:16 AM
+-- Generation Time: Jun 03, 2017 at 10:15 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -74,24 +74,25 @@ CREATE TABLE `client` (
   `name` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
   `class` varchar(1) DEFAULT NULL,
-  `address` varchar(300) NOT NULL
+  `address` varchar(300) NOT NULL,
+  `password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`clientID`, `name`, `phone`, `class`, `address`) VALUES
-('cl01', 'Teh Botol', '0819849392', 'b', 'Jl. Teh Botol Sosro'),
-('cl02', 'Kabel Data', '09128394030', 'p', 'Jl. Kabel Data Kenceng'),
-('cl03', 'Wilson Will', '08123949302', 'p', 'Jl. MOI'),
-('cl04', 'Semoura Coyy', '08123948392', 'p', 'Jl. Gatau Namanya Keren'),
-('cl05', 'Unilever', '08123949203', 'b', 'Jl. Unilever Utara'),
-('cl06', 'Apple', '08123494320', 'b', 'Jl. Apple Selatan'),
-('cl07', 'Teddy Hooo', '08158393201', 'p', 'Jl. Ponti'),
-('cl08', 'Tono Oye', '089917238884', 'p', 'Jl. Tonooo'),
-('cl09', 'Ono Oo', '089888399282', 'p', 'Jl. Onoooo'),
-('cl10', 'BCA', '0213444555', 'b', 'Jl. Central Asia');
+INSERT INTO `client` (`clientID`, `name`, `phone`, `class`, `address`, `password`) VALUES
+('cl01', 'Teh Botol', '0819849392', 'b', 'Jl. Teh Botol Sosro', '123456'),
+('cl02', 'Kabel Data', '09128394030', 'p', 'Jl. Kabel Data Kenceng', '123456'),
+('cl03', 'Wilson Will', '08123949302', 'p', 'Jl. MOI', '123456'),
+('cl04', 'Semoura Coyy', '08123948392', 'p', 'Jl. Gatau Namanya Keren', '123456'),
+('cl05', 'Unilever', '08123949203', 'b', 'Jl. Unilever Utara', '123456'),
+('cl06', 'Apple', '08123494320', 'b', 'Jl. Apple Selatan', '123456'),
+('cl07', 'Teddy Hooo', '08158393201', 'p', 'Jl. Ponti', '123456'),
+('cl08', 'Tono Oye', '089917238884', 'p', 'Jl. Tonooo', '123456'),
+('cl09', 'Ono Oo', '089888399282', 'p', 'Jl. Onoooo', '123456'),
+('cl10', 'BCA', '0213444555', 'b', 'Jl. Central Asia', '123456');
 
 -- --------------------------------------------------------
 
@@ -398,24 +399,25 @@ CREATE TABLE `staff` (
   `name` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `age` int(11) NOT NULL
+  `age` int(11) NOT NULL,
+  `password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`staffID`, `name`, `phone`, `gender`, `age`) VALUES
-('st01', 'Wilson', '08128071900', 'male', 19),
-('st02', 'Jeffrey', '0878899000', 'male', 20),
-('st03', 'Novi', '08128593973', 'female', 30),
-('st04', 'Wuilly', '0897685938', 'male', 43),
-('st05', 'Justin', '08928319237', 'male', 32),
-('st06', 'Noah', '08293148574', 'male', 28),
-('st07', 'Vani', '08931884273', 'female', 42),
-('st08', 'Jordanatha', '089627888389', 'male', 18),
-('st09', 'Archel Taneka', '08128071999', 'male', 19),
-('st10', 'Adrian Alexander', '08128071988', 'male', 19);
+INSERT INTO `staff` (`staffID`, `name`, `phone`, `gender`, `age`, `password`) VALUES
+('st01', 'Wilson', '08128071900', 'male', 19, 'admin'),
+('st02', 'Jeffrey', '0878899000', 'male', 20, 'admin'),
+('st03', 'Novi', '08128593973', 'female', 30, 'admin'),
+('st04', 'Wuilly', '0897685938', 'male', 43, 'admin'),
+('st05', 'Justin', '08928319237', 'male', 32, 'admin'),
+('st06', 'Noah', '08293148574', 'male', 28, 'admin'),
+('st07', 'Vani', '08931884273', 'female', 42, 'admin'),
+('st08', 'Jordanatha', '089627888389', 'male', 18, 'admin'),
+('st09', 'Archel Taneka', '08128071999', 'male', 19, 'admin'),
+('st10', 'Adrian Alexander', '08128071988', 'male', 19, 'admin');
 
 -- --------------------------------------------------------
 
