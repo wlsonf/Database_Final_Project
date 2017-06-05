@@ -12,7 +12,7 @@ Public Class Journey
     Private Sub DoneBtn_Click(sender As Object, e As EventArgs) Handles DoneBtn.Click
         Dim charge As Int32 = Jour.Mileage * 4000
         Dim sCharge As String = charge.ToString()
-        If charge = 0 Then
+        If charge = 0 Or UserYa.ClassYa = "b" Then
             sCharge = "null"
         End If
         Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', " & Jour.Mileage & ", 'succeed', 'ok', " & sCharge & ");
@@ -22,6 +22,8 @@ Public Class Journey
                                    UPDATE contract SET numberOfJob = numberOfJob + 1 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
         End If
 
+        MessageBox.Show("Congratulations you have arrived at your destination.")
+
         Try
             conn.Open()
             comm = New MySqlCommand(queryADD, conn)
@@ -29,6 +31,8 @@ Public Class Journey
 
             conn.Close()
             Me.Visible = False
+            Dim Main As Main2 = New Main2()
+            Main.UserYa = UserYa
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -38,7 +42,39 @@ Public Class Journey
 
     Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
 
+        'MESSAGE BOX ARE YOU SURE
+        'IF SURE EXECUTE
+        'ELSE BACK (RETURN)
 
+
+        Dim charge As Int32 = Jour.Mileage * 4000
+        Dim sCharge As String = charge.ToString()
+        If charge = 0 Or UserYa.ClassYa = "b" Then
+            sCharge = "null"
+        End If
+        Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', " & Jour.Mileage & ", 'succeed', 'ok', " & sCharge & ");
+                                  UPDATE job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
+        If UserYa.ClassYa = "b" Then
+            queryADD = queryADD & "UPDATE contract SET totalMilage = totalMilage + " & Jour.Mileage & " WHERE contractID = '" & UserYa.ContractYa.ContractID & "';
+                                   UPDATE contract SET numberOfJob = numberOfJob + 1 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
+        End If
+
+
+        Try
+            conn.Open()
+            comm = New MySqlCommand(queryADD, conn)
+            comm.ExecuteNonQuery()
+
+            MessageBox.Show("Job canceled")
+
+            conn.Close()
+            Me.Visible = False
+            Dim Main As Main2 = New Main2()
+            Main.UserYa = UserYa
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 End Class

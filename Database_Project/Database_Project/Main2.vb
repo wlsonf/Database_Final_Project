@@ -40,6 +40,7 @@ Public Class Main2
 
             End If
 
+            conn.Close()
 
         Catch ex As Exception
             MsgBox("Wrong Phone Number", MsgBoxStyle.Critical, "ERROR")
@@ -51,6 +52,12 @@ Public Class Main2
         'MessageBox.Show(UserYa.ClientID)
         'Dim monyet As String
         NameLabel.Text = UserYa.Name
+
+        If UserYa.ClassYa = "b" Then
+            find_contract()
+        End If
+
+        LoadComboBox()
 
         'Dim departure As List(Of String)
         'Dim destination As List(Of String)
@@ -66,11 +73,13 @@ Public Class Main2
     Private Function find_distance() As Int32
         Dim distance As Int32
         Dim reader As MySqlDataReader
-        Dim query As String = "SELECT distance FROM mapping WHERE (departure = '" & DepartureBox.SelectedItem.ToString() & "' 
-                                OR destination = '" & DepartureBox.SelectedItem.ToString() & "') 
-                                AND (departure = '" & DestinationBox.SelectedItem.ToString() & "'
-                                OR destination = '" & DestinationBox.SelectedItem.ToString() & "');"
-
+        'Dim query As String = "SELECT distance FROM mapping WHERE (departure = '" & DepartureBox.SelectedItem.ToString() & "' 
+        '                        OR destination = '" & DepartureBox.SelectedItem.ToString() & "') 
+        '                        AND (departure = '" & DestinationBox.SelectedItem.ToString() & "'
+        '                        OR destination = '" & DestinationBox.SelectedItem.ToString() & "');"
+        Dim query As String = "SELECT distance FROM distance 
+                                WHERE pAddress = '" & DepartureBox.SelectedItem.ToString() & "' 
+                                AND dAddress = '" & DestinationBox.SelectedItem.ToString() & "';"
         Try
             conn.Open()
             comm = New MySqlCommand(query, conn)
@@ -82,7 +91,7 @@ Public Class Main2
             conn.Close()
 
         Catch ex As Exception
-            MsgBox("Wrong Phone Number", MsgBoxStyle.Critical, "ERROR")
+            MsgBox("Error: ", MsgBoxStyle.Critical, "ERROR")
         End Try
 
         Return distance
@@ -113,7 +122,7 @@ Public Class Main2
             conn.Close()
 
         Catch ex As Exception
-            MsgBox("Wrong Phone Number", MsgBoxStyle.Critical, "ERROR")
+            MsgBox("Error: ", MsgBoxStyle.Critical, "ERROR")
         End Try
 
         Dim range As Int32 = drivers.Count()
@@ -154,17 +163,74 @@ Public Class Main2
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles GoBtn.Click
 
         Dim nextID As String = "jb" & (get_bottomest_id() + 1).ToString()
-        Dim a As String = "INSERT INTO job VALUES ('" & nextID & "', '" & find_driver() & "', '" & UserYa.ClientID & "', CURDATE(), CURTIME(), null, 'fx', 'binus jwc')"
+        Dim a As String = "INSERT INTO job VALUES ('" & nextID & "', '" & find_driver() & "', '" & UserYa.ClientID & "', CURDATE(), CURTIME(), null, '
+                          " & DepartureBox.SelectedItem.ToString() & "', '" & DestinationBox.SelectedItem.ToString() & "');"
 
+        Try
+            conn.Open()
 
+            comm = New MySqlCommand(a, conn)
+            comm.ExecuteNonQuery()
+
+            conn.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
         Dim Jour As Trip = New Trip()
         Dim AAA As Journey = New Journey()
 
+        Jour.Mileage = find_distance()
         Jour.JobID = nextID
         AAA.Jour = Jour
+        AAA.Show()
+        Me.Dispose()
 
     End Sub
 
+    Private Sub find_contract()
+        Dim reader As MySqlDataReader
+        Dim queryy As String = "SELECT contractID FROM business WHERE clientID = '" & UserYa.ClientID & "';"
+
+        Try
+            conn.Open()
+            comm = New MySqlCommand(queryy, conn)
+            reader = comm.ExecuteReader()
+            reader.Read()
+            UserYa.ContractYa.ContractID = reader("contractID").ToString()
+
+            conn.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub LoadComboBox()
+        Dim reader As MySqlDataReader
+        Dim pAdd As List(Of String) = New List(Of String)
+        Dim dAdd As List(Of String) = New List(Of String)
+        Try
+            conn.Open()
+            comm = New MySqlCommand("SELECT pAddress FROM distance GROUP BY pAddress", conn)
+            reader = comm.ExecuteReader()
+            While reader.Read()
+                pAdd.Add(reader("pAddress").ToString())
+            End While
+
+            comm = New MySqlCommand("SELECT dAddress FROM distance GROUP BY dAddress", conn)
+            reader = comm.ExecuteReader()
+            While reader.Read()
+                dAdd.Add(reader("dAddress").ToString())
+            End While
+
+            conn.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
 End Class

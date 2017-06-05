@@ -6,8 +6,6 @@ Public Class Private_Sign_Up
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
     Dim comm As MySqlCommand
 
-
-
     Private Sub Private_Sign_Up_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         IDLbl.Text = UserYa.ClientID
     End Sub
