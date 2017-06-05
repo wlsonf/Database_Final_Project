@@ -8,7 +8,7 @@ Public Class Create_Contract
 
     Private Function get_bottomest_id() As Int32
         Dim reader As MySqlDataReader
-        Dim contractID As String
+        Dim contractID As String = ""
         Dim nums As String = ""
         Dim num As Int32
         Try
@@ -35,7 +35,7 @@ Public Class Create_Contract
     End Function
 
     Private Function get_staffID() As String
-        Dim staffID As String
+        Dim staffID As String = ""
         Dim reader As MySqlDataReader
         Dim queryFindStaffID As String = "SELECT m.staffID FROM office o, manager m WHERE m.officeID = o.officeID AND o.city = '" & CityBox.SelectedItem.ToString & "'"
         Try
@@ -67,7 +67,7 @@ Public Class Create_Contract
             comm.ExecuteNonQuery()
 
             MessageBox.Show("Account Created")
-            Dim ABC As Business_Sign_Up
+            Dim ABC As Business_Sign_Up = New Business_Sign_Up()
             ABC.UserYa = UserYa
             ABC.ContractID = nextID
             ABC.Show()

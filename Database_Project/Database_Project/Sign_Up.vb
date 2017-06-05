@@ -8,7 +8,7 @@ Public Class Sign_Up
 
     Private Function get_bottomest_id() As Int32
         Dim reader As MySqlDataReader
-        Dim clientID As String
+        Dim clientID As String = ""
         Dim nums As String = ""
         Dim num As Int32
         Try

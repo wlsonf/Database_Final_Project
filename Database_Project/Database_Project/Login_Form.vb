@@ -16,7 +16,7 @@ Public Class Login_Form
     End Sub
 
     Private Sub LoginButt_Click(sender As Object, e As EventArgs) Handles LoginButt.Click
-        Dim Main As Main = New Main()
+        Dim Main As Main2 = New Main2()
         Dim conn As MySqlConnection = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
         Dim comm As MySqlCommand
         Dim reader As MySqlDataReader

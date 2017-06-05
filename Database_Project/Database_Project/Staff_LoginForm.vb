@@ -11,7 +11,7 @@ Public Class Staff_LoginForm
             MsgBox("Password cannot be empty", MsgBoxStyle.Critical, "ERROR")
         End If
 
-        Dim Main = New Main
+        Dim Main = New Main2()
 
         Dim conn As MySqlConnection
         Dim comm As MySqlCommand

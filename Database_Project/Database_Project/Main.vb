@@ -53,12 +53,12 @@ Public Class Main
         'Dim monyet As String
         NameLabel.Text = UserYa.Name
 
-        Dim departure As List(Of String)
-        Dim destination As List(Of String)
+        'Dim departure As List(Of String)
+        'Dim destination As List(Of String)
 
 
-        DepartureBox.DataSource = departure
-        DestinationBox.DataSource = destination
+        'DepartureBox.DataSource = departure
+        'DestinationBox.DataSource = destination
 
 
 

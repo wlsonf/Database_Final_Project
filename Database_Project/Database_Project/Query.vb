@@ -68,13 +68,19 @@ Public Class Query
                         GROUP BY o.name;"
             Case 4
                 query = "SELECT * FROM taxi 
-                        WHERE extID IN(SELECT extID FROM owner WHERE staffID IN(SELECT staffID FROM manager WHERE officeID IN(SELECT officeID FROM office WHERE name = 'Glasgow')))"
+                        WHERE extID IN(SELECT extID FROM owner 
+                                        WHERE staffID IN(SELECT staffID FROM manager 
+                                                         WHERE officeID IN(SELECT officeID FROM office 
+                                                                           WHERE name = 'Glasgow')))"
             Case 5
                 query = "SELECT COUNT(platenumber) AS totalTaxi FROM taxi;"
             Case 6
-                query = "SELECT plateNumber, COUNT(extID) AS totalDriver FROM driver d GROUP BY plateNumber;"
+                query = "SELECT plateNumber, COUNT(extID) AS totalDriver 
+                        FROM driver d GROUP BY plateNumber;"
             Case 7
-                query = "SELECT ex.name, COUNT(t.plateNumber) AS totalTaxi FROM external ex, taxi t WHERE ex.extID = t.extID GROUP BY ex.name HAVING COUNT(t.plateNumber)>1"
+                query = "SELECT ex.name, COUNT(t.plateNumber) AS totalTaxi 
+                        FROM external ex, taxi t WHERE ex.extID = t.extID 
+                        GROUP BY ex.name HAVING COUNT(t.plateNumber)>1"
             Case 8
                 query = "SELECT c.name, c.address FROM client c
                         JOIN business b ON b.clientID = c.clientID
@@ -100,8 +106,11 @@ Public Class Query
                         FROM external ex, driver d 
                         WHERE ex.extID = d.extID AND ex.age > 55;"
             Case 13
-                query = "SELECT c.name, COUNT(j.jobID) AS totalJob FROM client c, job j, private p
-                        WHERE c.clientID = p.clientID AND p.clientID = j.clientID AND (j.date BETWEEN '2016-10-31' AND '2016-12-1');" 'XXXXXXXXXXXXXXXXXXXXXXXXXX
+                query = "SELECT c.name, COUNT(j.jobID) AS totalJob 
+                        FROM client c, job j 
+                        JOIN private p ON p.clientId = j.clientID 
+                        WHERE p.clientID = c.clientID 
+                        AND (j.date BETWEEN '2016-10-31' AND '2016-12-01') GROUP BY c.name;"
             Case 14
                 query = "SELECT c.name, c.address 
                         FROM client c

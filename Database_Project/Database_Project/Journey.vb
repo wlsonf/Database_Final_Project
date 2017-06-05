@@ -16,8 +16,11 @@ Public Class Journey
             sCharge = "null"
         End If
         Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', " & Jour.Mileage & ", 'succeed', 'ok', " & sCharge & ");
-                                 UPDATE job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
-
+                                  UPDATE job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
+        If UserYa.ClassYa = "b" Then
+            queryADD = queryADD & "UPDATE contract SET totalMilage = totalMilage + " & Jour.Mileage & " WHERE contractID = '" & UserYa.ContractYa.ContractID & "';
+                                   UPDATE contract SET numberOfJob = numberOfJob + 1 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
+        End If
 
         Try
             conn.Open()
@@ -26,18 +29,16 @@ Public Class Journey
 
             conn.Close()
             Me.Visible = False
-            Login_Form.Visible = True
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
 
+    End Sub
+
+    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
 
 
 
     End Sub
-
-
-
-
 End Class

@@ -89,10 +89,22 @@
     <Compile Include="Create_Contract.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Journey.Designer.vb">
+      <DependentUpon>Journey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Journey.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login_Form.Designer.vb">
       <DependentUpon>Login_Form.vb</DependentUpon>
     </Compile>
     <Compile Include="Login_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main2.Designer.vb">
+      <DependentUpon>Main2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Order_Form.Designer.vb">
@@ -155,11 +167,17 @@
     <EmbeddedResource Include="Create_Contract.resx">
       <DependentUpon>Create_Contract.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Journey.resx">
+      <DependentUpon>Journey.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main2.resx">
+      <DependentUpon>Main2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Private_Sign_Up.resx">
       <DependentUpon>Private_Sign_Up.vb</DependentUpon>
