@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2017 at 04:51 PM
+-- Generation Time: Jun 05, 2017 at 05:54 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -127,6 +127,36 @@ INSERT INTO `contract` (`contractID`, `staffID`, `numberOfJob`, `totalMilage`) V
 ('ct13', 'st10', 60, 2800),
 ('ct14', 'st10', 52, 2589),
 ('ct15', 'st10', 69, 5402);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `distance`
+--
+
+CREATE TABLE `distance` (
+  `pAddress` varchar(100) NOT NULL,
+  `dAddress` varchar(100) NOT NULL,
+  `distance` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `distance`
+--
+
+INSERT INTO `distance` (`pAddress`, `dAddress`, `distance`) VALUES
+('Mall Of Indonesia', 'Mall Puri Indah', 31),
+('Mall Of Indonesia', 'Pondok Indah Mall', 35),
+('Mall Of Indonesia', 'Mall Taman Anggrek', 22),
+('Puri Indah Mall', 'Mall Of Indonesia', 27),
+('Puri Indah Mall', 'Pondok Indah Mall', 17),
+('Puri Indah Mall', 'Mall Taman Anggrek', 8),
+('Pondok Indah Mall', 'Mall Of Indonesia', 34),
+('Pondok Indah Mall', 'Puri Indah Mall', 15),
+('Pondok Indah Mall', 'Mall Taman Anggrek', 13),
+('Mall Taman Anggrek', 'Mall Of Indonesia', 20),
+('Mall Taman Anggrek', 'Pondok Indah Mall', 14),
+('Mall Taman Anggrek', 'Puri Indah Mall', 10);
 
 -- --------------------------------------------------------
 
@@ -397,20 +427,40 @@ CREATE TABLE `receipt` (
   `jobID` varchar(100) NOT NULL,
   `mileage` int(11) NOT NULL,
   `status` varchar(100) NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `description` varchar(1000) NOT NULL,
+  `charge` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `receipt`
 --
 
-INSERT INTO `receipt` (`jobID`, `mileage`, `status`, `description`) VALUES
-('jb001', 12, 'succeed', 'ok'),
-('jb002', 7, 'succeed', 'ok'),
-('jb003', 9, 'succeed', 'ok'),
-('jb004', 15, 'succeed', 'ok'),
-('jb005', 20, 'succeed', 'ok'),
-('jb006', 14, 'succeed', 'ok');
+INSERT INTO `receipt` (`jobID`, `mileage`, `status`, `description`, `charge`) VALUES
+('jb001', 12, 'succeed', 'ok', NULL),
+('jb002', 7, 'succeed', 'ok', 28000),
+('jb003', 9, 'succeed', 'ok', NULL),
+('jb004', 15, 'succeed', 'ok', 60000),
+('jb005', 20, 'succeed', 'ok', NULL),
+('jb006', 14, 'succeed', 'ok', 56000),
+('jb007', 11, 'succeed', 'ok', NULL),
+('jb008', 12, 'succeed', 'ok', NULL),
+('jb009', 8, 'succeed', 'ok', NULL),
+('jb010', 4, 'succeed', 'ok', 44000),
+('jb011', 7, 'succeed', 'ok', 44000),
+('jb012', 11, 'succeed', 'ok', 44000),
+('jb013', 13, 'succeed', 'ok', 44000),
+('jb014', 5, 'succeed', 'ok', NULL),
+('jb015', 6, 'succeed', 'ok', NULL),
+('jb016', 8, 'succeed', 'ok', 44000),
+('jb017', 11, 'succeed', 'ok', 44000),
+('jb018', 4, 'succeed', 'ok', NULL),
+('jb019', 15, 'succeed', 'ok', 44000),
+('jb020', 13, 'succeed', 'ok', 44000),
+('jb021', 3, 'succeed', 'ok', 44000),
+('jb022', 12, 'succeed', 'ok', 44000),
+('jb023', 10, 'succeed', 'ok', 44000),
+('jb024', 7, 'succeed', 'ok', 44000),
+('jb025', 5, 'succeed', 'ok', 44000);
 
 -- --------------------------------------------------------
 

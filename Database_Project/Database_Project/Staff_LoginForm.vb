@@ -5,6 +5,12 @@ Public Class Staff_LoginForm
     Public StaffYa As ClientYa = New ClientYa()
 
     Private Sub LoginButt_Click(sender As Object, e As EventArgs) Handles LoginButt.Click
+        If ID_txt.Text = "" Then
+            MsgBox("ID cannot be empty", MsgBoxStyle.Critical, "ERROR")
+        ElseIf Password_txt.Text = "" Then
+            MsgBox("Password cannot be empty", MsgBoxStyle.Critical, "ERROR")
+        End If
+
         Dim Main = New Main
 
         Dim conn As MySqlConnection
@@ -35,7 +41,6 @@ Public Class Staff_LoginForm
 
         Catch ex As Exception
             'MessageBox.Show(ex.Message)
-            MessageBox.Show("")
         End Try
 
     End Sub
