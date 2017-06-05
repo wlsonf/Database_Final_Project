@@ -13,11 +13,37 @@ Public Class Main2
 
     End Sub
 
-    Private Sub LogoutButt_Click(sender As Object, e As EventArgs) Handles LogoutButt.Click
+    Private Sub LogoutButt_Click(sender As Object, e As EventArgs) Handles LogOutBtn.Click
+        If MsgBox("Really?", MsgBoxStyle.YesNo, "Logout") = MsgBoxResult.Yes Then
+            Me.Visible = False
+            Login_Form.Visible = True
+        Else
 
+        End If
     End Sub
 
-    Private Sub DeleteButt_Click(sender As Object, e As EventArgs) Handles DeleteButt.Click
+    Private Sub DeleteButt_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
+        'Dim reader As MySqlDataReader
+        Dim query As String = "DELETE FROM client WHERE phone = '" & UserYa.Phone & "'"
+
+        Try
+            conn.Open()
+            comm = New MySqlCommand(query, conn)
+            'reader = comm.ExecuteReader
+
+
+            If MsgBox("Really?", MsgBoxStyle.YesNo, "Delete Account") = MsgBoxResult.Yes Then
+                MsgBox("Account Deleted!", MsgBoxStyle.OkOnly, "FastCab")
+                comm.ExecuteNonQuery()
+                Me.Close()
+            Else
+
+            End If
+
+
+        Catch ex As Exception
+            MsgBox("Wrong Phone Number", MsgBoxStyle.Critical, "ERROR")
+        End Try
 
     End Sub
 
@@ -125,7 +151,7 @@ Public Class Main2
     End Function
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles GoBtn.Click
 
         Dim nextID As String = "jb" & (get_bottomest_id() + 1).ToString()
         Dim a As String = "INSERT INTO job VALUES ('" & nextID & "', '" & find_driver() & "', '" & UserYa.ClientID & "', CURDATE(), CURTIME(), null, 'fx', 'binus jwc')"
@@ -139,4 +165,6 @@ Public Class Main2
         AAA.Jour = Jour
 
     End Sub
+
+
 End Class

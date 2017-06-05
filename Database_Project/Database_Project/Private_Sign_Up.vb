@@ -13,7 +13,7 @@ Public Class Private_Sign_Up
     End Sub
 
     Private Function get_staffID() As String
-        Dim staffID As String
+        Dim staffID As String = ""
         Dim reader As MySqlDataReader
         Dim queryFindStaffID As String = "SELECT m.staffID FROM office o, manager m WHERE m.officeID = o.officeID AND o.city = '" & CityBox.SelectedItem.ToString & "'"
         Try

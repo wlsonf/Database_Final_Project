@@ -21,7 +21,6 @@ D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Databas
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\bin\Debug\MySql.Data.xml
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.vbprojResolveAssemblyReference.cache
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Login_Form.resources
-D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Main.resources
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Query.resources
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Resources.resources
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Sign_Up.resources

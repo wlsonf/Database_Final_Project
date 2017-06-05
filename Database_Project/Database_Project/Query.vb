@@ -45,7 +45,7 @@ Public Class Query
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BoxQuery.SelectedIndexChanged
-        Dim query As String
+        Dim query As String = ""
 
 
         Select Case BoxQuery.SelectedIndex()
