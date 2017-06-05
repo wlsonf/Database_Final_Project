@@ -101,7 +101,7 @@ Public Class Query
                         WHERE ex.extID = d.extID AND ex.age > 55;"
             Case 13
                 query = "SELECT c.name, COUNT(j.jobID) AS totalJob FROM client c, job j, private p
-                        WHERE c.clientID = p.clientID AND p.clientID = j.clientID AND j.date = ‘2016-11’;" 'XXXXXXXXXXXXXXXXXXXXXXXXXX
+                        WHERE c.clientID = p.clientID AND p.clientID = j.clientID AND (j.date BETWEEN '2016-10-31' AND '2016-12-1');" 'XXXXXXXXXXXXXXXXXXXXXXXXXX
             Case 14
                 query = "SELECT c.name, c.address 
                         FROM client c
@@ -121,7 +121,11 @@ Public Class Query
                         WHERE d.extID = ext.extID AND d.extID = j.extID
                         GROUP BY ext.name;"
             Case 18
-                query = ""'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                query = "SELECT t.plateNumber, SUM(r.charge) AS TotalCharge 
+                        FROM taxi t, receipt r 
+                        JOIN job j ON j.jobID = r.jobID 
+                        JOIN driver d ON d.extID = j.extID 
+                        WHERE D.plateNumber = T.plateNumber GROUP BY t.plateNumber;"
             Case 19
                 query = "SELECT numberOfJob, totalMilage FROM contract;"
         End Select

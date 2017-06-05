@@ -63,7 +63,7 @@ Public Class Sign_Up
             conn.Open()
             comm = New MySqlCommand(queryADD, conn)
             comm.ExecuteNonQuery()
-            If ComboBox1.SelectedIndex = 0 Then
+            If a = "p" Then
                 Dim Private_SU As Private_Sign_Up = New Private_Sign_Up()
                 UserYa.ClientID = nextID
                 UserYa.Name = NameTxt.Text
@@ -75,7 +75,15 @@ Public Class Sign_Up
                 Private_SU.Show()
 
             Else
-                a = "b"
+                Dim Business_SU As Business_Sign_Up = New Business_Sign_Up()
+                UserYa.ClientID = nextID
+                UserYa.Name = NameTxt.Text
+                UserYa.Phone = PhoneTxt.Text
+                UserYa.ClassYa = a
+                UserYa.Address = AddressTxt.Text
+                Business_SU.UserYa = UserYa
+
+                Business_SU.Show()
             End If
 
             conn.Close()

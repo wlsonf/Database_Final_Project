@@ -28,9 +28,9 @@ Partial Class Main
         Me.DeleteButt = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.DestinationBox = New System.Windows.Forms.ComboBox()
+        Me.DepartureBox = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -72,7 +72,7 @@ Partial Class Main
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(30, 73)
+        Me.Label2.Location = New System.Drawing.Point(30, 77)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 13)
         Me.Label2.TabIndex = 4
@@ -81,25 +81,11 @@ Partial Class Main
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 114)
+        Me.Label3.Location = New System.Drawing.Point(13, 118)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 13)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Pick up Address"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(125, 73)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 6
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(125, 107)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 7
         '
         'Button1
         '
@@ -110,14 +96,32 @@ Partial Class Main
         Me.Button1.Text = "Go"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'DestinationBox
+        '
+        Me.DestinationBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DestinationBox.FormattingEnabled = True
+        Me.DestinationBox.Location = New System.Drawing.Point(104, 73)
+        Me.DestinationBox.Name = "DestinationBox"
+        Me.DestinationBox.Size = New System.Drawing.Size(121, 21)
+        Me.DestinationBox.TabIndex = 9
+        '
+        'DepartureBox
+        '
+        Me.DepartureBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DepartureBox.FormattingEnabled = True
+        Me.DepartureBox.Location = New System.Drawing.Point(104, 114)
+        Me.DepartureBox.Name = "DepartureBox"
+        Me.DepartureBox.Size = New System.Drawing.Size(121, 21)
+        Me.DepartureBox.TabIndex = 10
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.Controls.Add(Me.DepartureBox)
+        Me.Controls.Add(Me.DestinationBox)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DeleteButt)
@@ -137,7 +141,7 @@ Partial Class Main
     Friend WithEvents DeleteButt As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents DestinationBox As ComboBox
+    Friend WithEvents DepartureBox As ComboBox
 End Class
