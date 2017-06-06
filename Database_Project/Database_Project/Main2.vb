@@ -24,8 +24,19 @@ Public Class Main2
 
     Private Sub DeleteButt_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
         'Dim reader As MySqlDataReader
-        Dim query As String = "DELETE FROM client WHERE phone = '" & UserYa.Phone & "'"
+        Dim query As String = ""
+        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    INI KALO JADI MAU SEMUANYA DIBERSIHIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        'query = query & "DELETE FROM receipt WHERE jobID IN (SELECT j.jobID FROM job j WHERE j.clientID = '" & UserYa.ClientID & "');
+        '                        DELETE FROM job WHERE j.clientID = '" & UserYa.ClientID & "';"
+        'If UserYa.ClassYa = "b" Then
+        '    query = query & "DELETE FROM business WHERE clientID = '" & UserYa.ClientID & "';
+        '                    DELETE FROM contract WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
+        'Else
+        '    query = query & "DELETE FROM private WHERE clientID = '" & UserYa.ClientID & "';"
+        'End If
 
+        query = query & "DELETE FROM client WHERE clientID = '" & UserYa.ClientID & "';"
+        'MessageBox.Show(UserYa.ClientID)
         Try
             conn.Open()
             comm = New MySqlCommand(query, conn)
@@ -34,16 +45,16 @@ Public Class Main2
 
             If MsgBox("Really?", MsgBoxStyle.YesNo, "Delete Account") = MsgBoxResult.Yes Then
                 MsgBox("Account Deleted!", MsgBoxStyle.OkOnly, "FastCab")
-                comm.ExecuteNonQuery()
-                Me.Close()
-            Else
 
+            Else
+                Return
             End If
+            comm.ExecuteNonQuery()
 
             conn.Close()
-
+            Me.Close()
         Catch ex As Exception
-            MsgBox("Wrong Phone Number", MsgBoxStyle.Critical, "ERROR")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
         End Try
 
     End Sub
@@ -57,7 +68,7 @@ Public Class Main2
         If UserYa.ClassYa = "b" Then
             find_contract()
         End If
-        MessageBox.Show(UserYa.Type)
+        'MessageBox.Show(UserYa.Type)
 
         LoadComboBox("", "")
         DepartureBox.SelectedIndex = 0
@@ -303,7 +314,13 @@ Public Class Main2
         'LoadComboBox("", DestinationBox.SelectedItem.ToString())
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    Private Sub admin_Click(sender As Object, e As EventArgs) Handles admin.Click
+
+        Dim MainS As MainStaff = New MainStaff()
+
+        MainS.UserYa = UserYa
+        MainS.Show()
 
     End Sub
 End Class
