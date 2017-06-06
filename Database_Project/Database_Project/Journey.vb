@@ -52,7 +52,7 @@ Public Class Journey
         If charge = 0 Or UserYa.ClassYa = "b" Then
             sCharge = "null"
         End If
-        Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', '0', 'failed', 'user cancel', 'NULL');
+        Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', '0', 'failed', 'user cancel', null);
                                   UPDATE job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
         If UserYa.ClassYa = "b" Then
             queryADD = queryADD & "UPDATE contract SET totalMilage = totalMilage + 0 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';
@@ -61,7 +61,7 @@ Public Class Journey
 
         If MsgBox("Really?", MsgBoxStyle.YesNo, "Cancel the trip?") = MsgBoxResult.Yes Then
             MsgBox("Trip canceled!", MsgBoxStyle.OkOnly, "FastCab")
-            comm.ExecuteNonQuery()
+            'comm.ExecuteNonQuery()
             Me.Close()
             Try
                 conn.Open()
@@ -72,12 +72,14 @@ Public Class Journey
                 Me.Visible = False
                 Dim Main As Main2 = New Main2()
                 Main.UserYa = UserYa
-
+                Main.Show()
+                Me.Dispose()
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
         Else
-            MessageBox.Show("Drive resumed")
+            MessageBox.Show("Continue trip")
+            Return
         End If
 
     End Sub
