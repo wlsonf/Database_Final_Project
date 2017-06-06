@@ -94,7 +94,7 @@ Public Class Main2
             conn.Close()
 
         Catch ex As Exception
-            MsgBox("Error: ", MsgBoxStyle.Critical, "ERROR")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
         End Try
 
         Return distance
@@ -111,7 +111,7 @@ Public Class Main2
         If (UserYa.ClassYa = "p") Then
             query = "SELECT d.extID FROM driver d, private p WHERE d.staffID = p.staffID;" 'KALO PRIVATE CARI DI PRIVATE, KALO BUSINESS CARI DI BUSINESS
         Else
-            query = "SELECT d.extID FROM driver d, business WHERE d.staffID = b.staffID;"
+            query = "SELECT d.extID FROM driver d, business b WHERE d.staffID = b.staffID;"
         End If
         Try
             conn.Open()
@@ -125,7 +125,7 @@ Public Class Main2
             conn.Close()
 
         Catch ex As Exception
-            MsgBox("Error: ", MsgBoxStyle.Critical, "ERROR")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
         End Try
 
         Dim range As Int32 = drivers.Count()
@@ -144,7 +144,7 @@ Public Class Main2
             comm = New MySqlCommand("SELECT jobID FROM job ORDER BY jobID DESC", conn)
             reader = comm.ExecuteReader()
             reader.Read()
-            jobID = reader("clientID").ToString()
+            jobID = reader("jobID").ToString()
 
             conn.Close()
 
@@ -166,7 +166,7 @@ Public Class Main2
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles GoBtn.Click
 
         Dim nextID As String = "jb" & (get_bottomest_id() + 1).ToString()
-        Dim a As String = "INSERT INTO job VALUES ('" & nextID & "', '" & find_driver() & "', '" & UserYa.ClientID & "', CURDATE(), CURTIME(), null, '
+        Dim a As String = "INSERT INTO job VALUES ('" & nextID & "', '" & find_driver() & "', '" & UserYa.ClientID & "', CURDATE(), CURTIME(), CURTIME(), '
                           " & DepartureBox.SelectedItem.ToString() & "', '" & DestinationBox.SelectedItem.ToString() & "');"
 
         Try
