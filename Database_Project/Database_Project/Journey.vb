@@ -10,6 +10,7 @@ Public Class Journey
     Private Sub DoneBtn_Click(sender As Object, e As EventArgs) Handles DoneBtn.Click
         Dim charge As Int32 = Jour.Mileage * 4000
         Dim sCharge As String = charge.ToString()
+        MessageBox.Show(UserYa.ClassYa)
         If charge = 0 Or UserYa.ClassYa = "b" Then
             sCharge = "null"
         End If
@@ -31,6 +32,7 @@ Public Class Journey
             Me.Visible = False
             Dim Main As Main2 = New Main2()
             Main.UserYa = UserYa
+            Main.Show()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)

@@ -109,9 +109,9 @@ Public Class Main2
         Dim query As String
 
         If (UserYa.ClassYa = "p") Then
-            query = "SELECT d.extID FROM driver d, private p WHERE d.staffID = p.staffID;" 'KALO PRIVATE CARI DI PRIVATE, KALO BUSINESS CARI DI BUSINESS
+            query = "SELECT d.extID FROM driver d, private p WHERE d.staffID = p.staffID AND p.clientID = '" & UserYa.ClientID & "';" 'KALO PRIVATE CARI DI PRIVATE, KALO BUSINESS CARI DI BUSINESS
         Else
-            query = "SELECT d.extID FROM driver d, business b WHERE d.staffID = b.staffID;"
+            query = "SELECT d.extID FROM driver d, business b, contract ct WHERE d.staffID = ct.staffID AND ct.contractID = b.contractID AND b.clientID = '" & UserYa.ClientID & "';"
         End If
         Try
             conn.Open()
@@ -186,6 +186,7 @@ Public Class Main2
 
         Jour.Mileage = find_distance()
         Jour.JobID = nextID
+        AAA.UserYa = UserYa
         AAA.Jour = Jour
         AAA.Show()
         Me.Dispose()
