@@ -50,11 +50,11 @@ Public Class Journey
         If charge = 0 Or UserYa.ClassYa = "b" Then
             sCharge = "null"
         End If
-        Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', " & Jour.Mileage & ", 'succeed', 'ok', " & sCharge & ");
+        Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', '0', 'failed', 'user cancel', 'NULL');
                                   UPDATE job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
         If UserYa.ClassYa = "b" Then
-            queryADD = queryADD & "UPDATE contract SET totalMilage = totalMilage + " & Jour.Mileage & " WHERE contractID = '" & UserYa.ContractYa.ContractID & "';
-                                   UPDATE contract SET numberOfJob = numberOfJob + 1 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
+            queryADD = queryADD & "UPDATE contract SET totalMilage = totalMilage + 0 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';
+                                   UPDATE contract SET numberOfJob = numberOfJob + 0 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
         End If
 
 

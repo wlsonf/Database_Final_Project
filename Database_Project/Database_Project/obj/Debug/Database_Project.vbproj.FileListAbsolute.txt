@@ -4,7 +4,6 @@ C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Datab
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\bin\Debug\Database_Project.xml
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\Database_Project.vbprojResolveAssemblyReference.cache
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Login_Form.resources
-C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Main.resources
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Query.resources
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Resources.resources
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Sign_Up.resources
@@ -39,3 +38,5 @@ C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Datab
 C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Private_Sign_Up.resources
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Journey.resources
 D:\Jeff_v2\COMP SCI\database systems\pinal proyek\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Main2.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Journey.resources
+C:\Users\Wilson Fransicius\Desktop\Database_Final_Project\Database_Project\Database_Project\obj\Debug\WindowsApp1.Main2.resources
