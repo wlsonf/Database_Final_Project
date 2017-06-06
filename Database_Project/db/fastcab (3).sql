@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2017 at 05:54 AM
+-- Generation Time: Jun 06, 2017 at 01:51 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -145,7 +145,7 @@ CREATE TABLE `distance` (
 --
 
 INSERT INTO `distance` (`pAddress`, `dAddress`, `distance`) VALUES
-('Mall Of Indonesia', 'Mall Puri Indah', 31),
+('Mall Of Indonesia', 'Puri Indah Mall', 31),
 ('Mall Of Indonesia', 'Pondok Indah Mall', 35),
 ('Mall Of Indonesia', 'Mall Taman Anggrek', 22),
 ('Puri Indah Mall', 'Mall Of Indonesia', 27),
