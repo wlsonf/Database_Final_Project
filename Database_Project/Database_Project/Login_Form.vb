@@ -42,6 +42,7 @@ Public Class Login_Form
                 Return
             Else
                 MsgBox("Wrong Password!", MsgBoxStyle.Critical, "ERROR")
+                conn.Close()
                 Exit Sub
             End If
 

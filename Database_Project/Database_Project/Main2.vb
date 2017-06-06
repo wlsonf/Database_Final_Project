@@ -52,12 +52,15 @@ Public Class Main2
         'MessageBox.Show(UserYa.ClientID)
         'Dim monyet As String
         NameLabel.Text = UserYa.Name
+        MessageBox.Show("abcdowudasd")
 
         If UserYa.ClassYa = "b" Then
             find_contract()
         End If
 
-        LoadComboBox()
+        LoadComboBox("", "")
+        DepartureBox.SelectedIndex = 0
+        redisplay()
 
         'Dim departure As List(Of String)
         'Dim destination As List(Of String)
@@ -198,8 +201,9 @@ Public Class Main2
             comm = New MySqlCommand(queryy, conn)
             reader = comm.ExecuteReader()
             reader.Read()
-            UserYa.ContractYa.ContractID = reader("contractID").ToString()
 
+            UserYa.ContractYa.ContractID = reader("contractID").ToString()
+            MessageBox.Show("yeyeeyyeye")
             conn.Close()
 
         Catch ex As Exception
@@ -208,7 +212,7 @@ Public Class Main2
 
     End Sub
 
-    Private Sub LoadComboBox()
+    Private Sub LoadComboBox(dept As String, dest As String)
         Dim reader As MySqlDataReader
         Dim pAdd As List(Of String) = New List(Of String)
         Dim dAdd As List(Of String) = New List(Of String)
@@ -219,18 +223,67 @@ Public Class Main2
             While reader.Read()
                 pAdd.Add(reader("pAddress").ToString())
             End While
+            conn.Close()
+            conn.Open()
 
             comm = New MySqlCommand("SELECT dAddress FROM distance GROUP BY dAddress", conn)
             reader = comm.ExecuteReader()
             While reader.Read()
                 dAdd.Add(reader("dAddress").ToString())
             End While
+            dAdd.Remove(dept)
 
             conn.Close()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+
+        DepartureBox.DataSource = pAdd
+        DestinationBox.DataSource = dAdd
+
+        'DepartureBox.SelectedItem = dept
+        DestinationBox.SelectedIndex = 0
+
     End Sub
 
+    Private Sub redisplay()
+        Dim reader As MySqlDataReader
+        Dim pAdd As List(Of String) = New List(Of String)
+        Dim dAdd As List(Of String) = New List(Of String)
+        Try
+            conn.Open()
+            comm = New MySqlCommand("SELECT pAddress FROM distance GROUP BY pAddress", conn)
+            reader = comm.ExecuteReader()
+            While reader.Read()
+                pAdd.Add(reader("pAddress").ToString())
+            End While
+            conn.Close()
+            conn.Open()
+
+            comm = New MySqlCommand("SELECT dAddress FROM distance GROUP BY dAddress", conn)
+            reader = comm.ExecuteReader()
+            While reader.Read()
+                dAdd.Add(reader("dAddress").ToString())
+            End While
+            dAdd.Remove(DepartureBox.SelectedItem)
+
+            conn.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        'DepartureBox.DataSource = pAdd
+        DestinationBox.DataSource = dAdd
+    End Sub
+
+    Private Sub DepartureBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DepartureBox.SelectedIndexChanged
+        redisplay()
+        'LoadComboBox(DepartureBox.SelectedItem.ToString(), "")
+    End Sub
+
+    Private Sub DestinationBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DestinationBox.SelectedIndexChanged
+        'LoadComboBox("", DestinationBox.SelectedItem.ToString())
+    End Sub
 End Class

@@ -4,7 +4,7 @@
     Public Phone As String
     Public ClassYa As String
     Public Address As String
-    Public ContractYa As Contract
+    Public ContractYa As Contract = New Contract()
 
 End Class
 

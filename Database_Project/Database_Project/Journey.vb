@@ -7,8 +7,6 @@ Public Class Journey
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
     Dim comm As MySqlCommand
 
-
-
     Private Sub DoneBtn_Click(sender As Object, e As EventArgs) Handles DoneBtn.Click
         Dim charge As Int32 = Jour.Mileage * 4000
         Dim sCharge As String = charge.ToString()
