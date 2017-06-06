@@ -59,22 +59,26 @@ Public Class Journey
                                    UPDATE contract SET numberOfJob = numberOfJob + 0 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
         End If
 
-
-        Try
-            conn.Open()
-            comm = New MySqlCommand(queryADD, conn)
+        If MsgBox("Really?", MsgBoxStyle.YesNo, "Cancel the trip?") = MsgBoxResult.Yes Then
+            MsgBox("Trip canceled!", MsgBoxStyle.OkOnly, "FastCab")
             comm.ExecuteNonQuery()
+            Me.Close()
+            Try
+                conn.Open()
+                comm = New MySqlCommand(queryADD, conn)
+                comm.ExecuteNonQuery()
 
-            MessageBox.Show("Job canceled")
+                conn.Close()
+                Me.Visible = False
+                Dim Main As Main2 = New Main2()
+                Main.UserYa = UserYa
 
-            conn.Close()
-            Me.Visible = False
-            Dim Main As Main2 = New Main2()
-            Main.UserYa = UserYa
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Drive resumed")
+        End If
 
     End Sub
 End Class
