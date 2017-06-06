@@ -88,7 +88,7 @@ Public Class Sign_Up
 
             conn.Close()
             Me.Visible = False
-            Login_Form.Visible = True
+            'Login_Form.Visible = True
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)

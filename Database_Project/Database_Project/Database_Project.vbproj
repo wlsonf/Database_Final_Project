@@ -107,10 +107,10 @@
     <Compile Include="Main2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Form.Designer.vb">
-      <DependentUpon>Order_Form.vb</DependentUpon>
+    <Compile Include="MainStaff.Designer.vb">
+      <DependentUpon>MainStaff.vb</DependentUpon>
     </Compile>
-    <Compile Include="Order_Form.vb">
+    <Compile Include="MainStaff.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Private_Sign_Up.Designer.vb">
@@ -169,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main2.resx">
       <DependentUpon>Main2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainStaff.resx">
+      <DependentUpon>MainStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Private_Sign_Up.resx">
       <DependentUpon>Private_Sign_Up.vb</DependentUpon>

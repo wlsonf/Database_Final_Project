@@ -31,6 +31,7 @@ Partial Class Main2
         Me.GoBtn = New System.Windows.Forms.Button()
         Me.LogOutBtn = New System.Windows.Forms.Button()
         Me.DeleteBtn = New System.Windows.Forms.Button()
+        Me.admin = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -89,9 +90,9 @@ Partial Class Main2
         '
         'GoBtn
         '
-        Me.GoBtn.Location = New System.Drawing.Point(103, 138)
+        Me.GoBtn.Location = New System.Drawing.Point(142, 142)
         Me.GoBtn.Name = "GoBtn"
-        Me.GoBtn.Size = New System.Drawing.Size(75, 23)
+        Me.GoBtn.Size = New System.Drawing.Size(122, 23)
         Me.GoBtn.TabIndex = 6
         Me.GoBtn.Text = "Go"
         Me.GoBtn.UseVisualStyleBackColor = True
@@ -114,11 +115,21 @@ Partial Class Main2
         Me.DeleteBtn.Text = "Delete Account"
         Me.DeleteBtn.UseVisualStyleBackColor = True
         '
+        'admin
+        '
+        Me.admin.Location = New System.Drawing.Point(19, 142)
+        Me.admin.Name = "admin"
+        Me.admin.Size = New System.Drawing.Size(117, 23)
+        Me.admin.TabIndex = 9
+        Me.admin.Text = "Administrative"
+        Me.admin.UseVisualStyleBackColor = True
+        '
         'Main2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 215)
+        Me.Controls.Add(Me.admin)
         Me.Controls.Add(Me.DeleteBtn)
         Me.Controls.Add(Me.LogOutBtn)
         Me.Controls.Add(Me.GoBtn)
@@ -144,4 +155,5 @@ Partial Class Main2
     Friend WithEvents GoBtn As Button
     Friend WithEvents LogOutBtn As Button
     Friend WithEvents DeleteBtn As Button
+    Friend WithEvents admin As Button
 End Class

@@ -28,6 +28,7 @@ Public Class Staff_LoginForm
                 StaffYa.ClientID = reader("staffID").ToString
                 StaffYa.Name = reader("name").ToString
                 StaffYa.Phone = reader("phone").ToString
+                StaffYa.Type = "staff"
                 Main.UserYa = StaffYa
                 MessageBox.Show("Success")
                 conn.Close()

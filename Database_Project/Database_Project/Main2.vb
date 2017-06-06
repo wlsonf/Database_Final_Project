@@ -52,15 +52,30 @@ Public Class Main2
         'MessageBox.Show(UserYa.ClientID)
         'Dim monyet As String
         NameLabel.Text = UserYa.Name
-        MessageBox.Show("abcdowudasd")
+        'MessageBox.Show("abcdowudasd")
 
         If UserYa.ClassYa = "b" Then
             find_contract()
         End If
+        MessageBox.Show(UserYa.Type)
 
         LoadComboBox("", "")
         DepartureBox.SelectedIndex = 0
         redisplay()
+
+        If UserYa.Type = "staff" Then
+            admin.Visible = True
+            GoBtn.Visible = False
+            DeleteBtn.Visible = False
+            Label3.Visible = False
+            Label4.Visible = False
+            DepartureBox.Visible = False
+            DestinationBox.Visible = False
+        ElseIf UserYa.Type = "client" Then
+            admin.Visible = False
+        Else
+            admin.Visible = False
+        End If
 
         'Dim departure As List(Of String)
         'Dim destination As List(Of String)
@@ -204,7 +219,7 @@ Public Class Main2
             reader.Read()
 
             UserYa.ContractYa.ContractID = reader("contractID").ToString()
-            MessageBox.Show("yeyeeyyeye")
+            'MessageBox.Show("yeyeeyyeye")
             conn.Close()
 
         Catch ex As Exception
@@ -286,5 +301,9 @@ Public Class Main2
 
     Private Sub DestinationBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DestinationBox.SelectedIndexChanged
         'LoadComboBox("", DestinationBox.SelectedItem.ToString())
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
     End Sub
 End Class

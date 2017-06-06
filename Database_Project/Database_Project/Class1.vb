@@ -5,7 +5,7 @@
     Public ClassYa As String
     Public Address As String
     Public ContractYa As Contract = New Contract()
-
+    Public Type As String
 End Class
 
 Public Class Contract

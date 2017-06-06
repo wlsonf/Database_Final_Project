@@ -7,16 +7,27 @@ Public Class Business_Sign_Up
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
     Dim comm As MySqlCommand
 
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label3.Text = UserYa.ClientID
+        TextBox1.Text = ContractID
+    End Sub
+
     Private Sub SubmitBtn_Click(sender As Object, e As EventArgs) Handles SubmitBtn.Click
         Dim queryADD As String = "INSERT INTO business VALUES ('" & UserYa.ClientID & "', '" & ContractID & "');"
+
 
         Try
             conn.Open()
             comm = New MySqlCommand(queryADD, conn)
             comm.ExecuteNonQuery()
 
+            MessageBox.Show("Account Created")
+            Dim DONE As Login_Form = New Login_Form()
+            DONE.Show()
             conn.Close()
-            Me.Close()
+            Me.Dispose()
+
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)

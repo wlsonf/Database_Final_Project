@@ -34,6 +34,7 @@ Public Class Login_Form
                 UserYa.Phone = reader("phone").ToString
                 UserYa.ClassYa = reader("class").ToString
                 UserYa.Address = reader("address").ToString
+                UserYa.Type = "client"
                 Main.UserYa = UserYa
                 MsgBox("Welcome " + UserYa.Name + "!", MsgBoxStyle.OkOnly, "Success")
                 conn.Close()
@@ -63,8 +64,9 @@ Public Class Login_Form
     End Sub
 
     Private Sub SignUpButt_Click(sender As Object, e As EventArgs) Handles SignUpButt.Click
+        Me.Visible = False
         Dim Sign_Up = New Sign_Up
-        Sign_Up.ShowDialog()
+        Sign_Up.Show()
     End Sub
 
     Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing

@@ -6,6 +6,10 @@ Public Class Create_Contract
     Dim conn As MySqlConnection = New MySqlConnection("server=localhost; uid=root; pwd=; database=fastcab;")
     Dim comm As MySqlCommand
 
+    Private Sub Create_Contract_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ClientLbl.Text = UserYa.ClientID
+    End Sub
+
     Private Function get_bottomest_id() As Int32
         Dim reader As MySqlDataReader
         Dim contractID As String = ""
@@ -16,7 +20,7 @@ Public Class Create_Contract
             comm = New MySqlCommand("SELECT contractID FROM contract ORDER BY contractID DESC", conn)
             reader = comm.ExecuteReader()
             reader.Read()
-            contractID = reader("clientID").ToString()
+            contractID = reader("contractID").ToString()
 
             conn.Close()
 
@@ -66,7 +70,7 @@ Public Class Create_Contract
             comm = New MySqlCommand(queryADD, conn)
             comm.ExecuteNonQuery()
 
-            MessageBox.Show("Account Created")
+            MessageBox.Show("Account Created, you code is " + nextID)
             Dim ABC As Business_Sign_Up = New Business_Sign_Up()
             ABC.UserYa = UserYa
             ABC.ContractID = nextID
