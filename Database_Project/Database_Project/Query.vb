@@ -56,76 +56,78 @@ Public Class Query
                         JOIN staff s ON s.staffID = m.staffID
                         JOIN office o ON o.officeID = m.officeID;"
             Case 2
-                query = "SELECT ex.name FROM external ex
+                query = "SELECT ex.name AS Name FROM external ex
                         JOIN driver d ON d.extID = ex.extID
                         JOIN manager m ON m.staffID = d.staffID
                         JOIN office o ON o.officeID = m.officeID
                         WHERE o.name = 'Glasgow' AND ex.gender = 'female';"
             Case 3
-                query = "SELECT o.name, (COUNT(a.staffID) + COUNT(m.staffID)) AS totalStaff 
+                query = "SELECT o.name AS Name, (COUNT(a.staffID) + COUNT(m.staffID)) AS Total_Staff 
                         FROM office o, admin a, manager m
                         WHERE a.officeID = o.officeID AND m.officeID = o.officeID
                         GROUP BY o.name;"
             Case 4
-                query = "SELECT * FROM taxi 
+                query = "SELECT plateNumber AS Plate_Number, type AS Type, color AS Color, extID AS OwnerID FROM taxi 
                         WHERE extID IN(SELECT extID FROM owner 
-                                        WHERE staffID IN(SELECT staffID FROM manager 
-                                                         WHERE officeID IN(SELECT officeID FROM office 
+                                       WHERE staffID IN(SELECT staffID FROM manager 
+                                                        WHERE officeID IN(SELECT officeID FROM office 
                                                                            WHERE name = 'Glasgow')))"
             Case 5
-                query = "SELECT COUNT(platenumber) AS totalTaxi FROM taxi;"
+                query = "SELECT COUNT(platenumber) AS Total_Taxi FROM taxi;"
             Case 6
-                query = "SELECT plateNumber, COUNT(extID) AS totalDriver 
+                query = "SELECT d.plateNumber AS Plate_Number, COUNT(extID) AS Drivers_Allocated 
                         FROM driver d GROUP BY plateNumber;"
             Case 7
-                query = "SELECT ex.name, COUNT(t.plateNumber) AS totalTaxi 
+                query = "SELECT ex.name AS Owner_Name, COUNT(t.plateNumber) AS Number_of_Taxi 
                         FROM external ex, taxi t WHERE ex.extID = t.extID 
                         GROUP BY ex.name HAVING COUNT(t.plateNumber)>1"
             Case 8
-                query = "SELECT c.name, c.address FROM client c
+                query = "SELECT c.name AS Client_Name, c.address AS Client_Address FROM client c
                         JOIN business b ON b.clientID = c.clientID
                         JOIN contract con ON con.contractID = b.contractID
                         JOIN manager m ON m.staffID = con.staffID
                         JOIN office of ON of.officeID = m.officeID
                         WHERE of.name = 'Glasgow';"
             Case 9
-                query = "SELECT con.* FROM contract con
+                query = "SELECT con.contractID AS ContractID, con.staffID AS ManagerID, con.numberOfJob AS Number_of_Jobs, con.totalMilage AS Total_Mileage
+                        FROM contract con
                         JOIN manager m ON m.staffID = con.staffID
                         JOIN office o ON o.officeID = m.officeID
                         WHERE o.name = 'Glasgow'"
             Case 10
-                query = "SELECT o.name, COUNT(p.clientID) AS total_private_clients 
+                query = "SELECT o.city AS City, COUNT(p.clientID) AS Total_Private_Clients 
                         FROM office o, private p, manager m 
                         WHERE p.staffID = m.staffID AND m.officeID = o.officeID
                         GROUP BY o.name;"
             Case 11
-                query = "SELECT ex.name, j.* FROM external ex, job j 
-                        WHERE date = '2017-06-03' AND ex.extID = j.extID;"
+                query = "SELECT ex.name AS Driver_Name, j.jobID AS JobID, j.extID AS DriverID, j.clientID AS ClientID, j.date AS Date, j.pTime AS Pick_up_Time, j.dTime AS Drop_off_Time, j.pAddress AS Pick_up_Address, j.dAddress AS Drop_off_Address 
+                        FROM external ex, job j 
+                        WHERE date = '2017-06-03' AND ex.extID = j.extID AND ex.extID = 'ex33';"
             Case 12
-                query = "SELECT ex.name 
+                query = "SELECT ex.name AS Driver_Name
                         FROM external ex, driver d 
                         WHERE ex.extID = d.extID AND ex.age > 55;"
             Case 13
-                query = "SELECT c.name, COUNT(j.jobID) AS totalJob 
+                query = "SELECT c.name AS Client_Name, COUNT(j.jobID) AS Number_of_Jobs 
                         FROM client c, job j 
                         JOIN private p ON p.clientId = j.clientID 
                         WHERE p.clientID = c.clientID 
                         AND (j.date BETWEEN '2016-10-31' AND '2016-12-01') GROUP BY c.name;"
             Case 14
-                query = "SELECT c.name, c.address 
+                query = "SELECT c.name AS Client_Name, c.address  AS Client_Address
                         FROM client c
                         JOIN private p ON p.clientID = c.clientID
                         JOIN job j ON j.clientID = p.clientID
                         HAVING COUNT(j.jobID) > 3;"
             Case 15
-                query = "SELECT AVG(mileage) AS avg_mileage FROM receipt;"
+                query = "SELECT AVG(mileage) AS Average_Milage FROM receipt;"
             Case 16
-                query = "SELECT d.plateNumber, COUNT(j.jobID) AS totalJob
+                query = "SELECT d.plateNumber AS Plate_Number, COUNT(j.jobID) AS Total_Jobs
                         FROM driver d, job j
                         WHERE d.extID = j.extID
                         GROUP BY d.plateNumber;"
             Case 17
-                query = "SELECT ext.name, COUNT(j.jobID) AS totalJob
+                query = "SELECT ext.name AS Driver_Name, COUNT(j.jobID) AS totalJob
                         FROM external ext, job j, driver d
                         WHERE d.extID = ext.extID AND d.extID = j.extID
                         GROUP BY ext.name;"

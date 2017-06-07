@@ -25,15 +25,15 @@ Public Class Main2
     Private Sub DeleteButt_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
         'Dim reader As MySqlDataReader
         Dim query As String = ""
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    INI KALO JADI MAU SEMUANYA DIBERSIHIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        'query = query & "DELETE FROM receipt WHERE jobID IN (SELECT j.jobID FROM job j WHERE j.clientID = '" & UserYa.ClientID & "');
-        '                        DELETE FROM job WHERE j.clientID = '" & UserYa.ClientID & "';"
-        'If UserYa.ClassYa = "b" Then
-        '    query = query & "DELETE FROM business WHERE clientID = '" & UserYa.ClientID & "';
-        '                    DELETE FROM contract WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
-        'Else
-        '    query = query & "DELETE FROM private WHERE clientID = '" & UserYa.ClientID & "';"
-        'End If
+        ' XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    INI KALO JADI MAU SEMUANYA DIBERSIHIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        query = query & "DELETE FROM receipt WHERE jobID IN (SELECT jobID FROM job WHERE clientID = '" & UserYa.ClientID & "');
+                                DELETE FROM job WHERE clientID = '" & UserYa.ClientID & "';"
+        If UserYa.ClassYa = "b" Then
+            query = query & "DELETE FROM business WHERE clientID = '" & UserYa.ClientID & "';
+                            DELETE FROM contract WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
+        Else
+            query = query & "DELETE FROM private WHERE clientID = '" & UserYa.ClientID & "';"
+        End If
 
         query = query & "DELETE FROM client WHERE clientID = '" & UserYa.ClientID & "';"
         'MessageBox.Show(UserYa.ClientID)
@@ -41,7 +41,6 @@ Public Class Main2
             conn.Open()
             comm = New MySqlCommand(query, conn)
             'reader = comm.ExecuteReader
-
 
             If MsgBox("Really?", MsgBoxStyle.YesNo, "Delete Account") = MsgBoxResult.Yes Then
                 MsgBox("Account Deleted!", MsgBoxStyle.OkOnly, "FastCab")
@@ -52,9 +51,16 @@ Public Class Main2
             comm.ExecuteNonQuery()
 
             conn.Close()
-            Me.Close()
+
+            Dim AAA As Login_Form = New Login_Form()
+            AAA.Show()
+            Me.Dispose()
+
+
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "ERROR")
+            conn.Close()
         End Try
 
     End Sub
