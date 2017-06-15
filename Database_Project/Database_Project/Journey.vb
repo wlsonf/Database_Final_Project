@@ -21,7 +21,9 @@ Public Class Journey
                                    UPDATE contract SET numberOfJob = numberOfJob + 1 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"
         End If
 
-        MessageBox.Show("Congratulations you have arrived at your destination.")
+        MessageBox.Show("Congratulations you have arrived at your destination." & Environment.NewLine & "Trip Details:" &
+                        Environment.NewLine & "Pick up: " & Jour.Dept & Environment.NewLine & "Drop-off: " & Jour.Dest &
+                        Environment.NewLine & "Mileage: " & Jour.Mileage & Environment.NewLine & "Fare: " & Jour.Mileage * 4000)
 
         Try
             conn.Open()
@@ -53,7 +55,7 @@ Public Class Journey
             sCharge = "null"
         End If
         Dim queryADD As String = "INSERT INTO receipt VALUES ('" & Jour.JobID & "', '0', 'failed', 'user cancel', null);
-                                  UPDATE job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
+        Update job SET dTime = CURTIME() WHERE jobID = '" & Jour.JobID & "'; "
         If UserYa.ClassYa = "b" Then
             queryADD = queryADD & "UPDATE contract SET totalMilage = totalMilage + 0 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';
                                    UPDATE contract SET numberOfJob = numberOfJob + 0 WHERE contractID = '" & UserYa.ContractYa.ContractID & "';"

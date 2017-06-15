@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2017 at 01:51 PM
+-- Generation Time: Jun 15, 2017 at 10:53 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -83,7 +83,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`clientID`, `name`, `phone`, `class`, `address`, `password`) VALUES
-('cl01', 'Teh Botol', '0819849392', 'b', 'Jl. Teh Botol Sosro', '123456'),
+('cl01', 'Teh Botol', '0829381943', 'b', 'Jl. Teh Botol Sosro', '123456'),
 ('cl02', 'Kabel Data', '09128394030', 'p', 'Jl. Kabel Data Kenceng', '123456'),
 ('cl03', 'Wilson Will', '08123949302', 'p', 'Jl. MOI', '123456'),
 ('cl04', 'Semoura Coyy', '08123948392', 'p', 'Jl. Gatau Namanya Keren', '123456'),
@@ -92,7 +92,9 @@ INSERT INTO `client` (`clientID`, `name`, `phone`, `class`, `address`, `password
 ('cl07', 'Teddy Hooo', '08158393201', 'p', 'Jl. Ponti', '123456'),
 ('cl08', 'Tono Oye', '089917238884', 'p', 'Jl. Tonooo', '123456'),
 ('cl09', 'Ono Oo', '089888399282', 'p', 'Jl. Onoooo', '123456'),
-('cl10', 'BCA', '0213444555', 'b', 'Jl. Central Asia', '123456');
+('cl10', 'BCA', '0213444555', 'b', 'Jl. Central Asia', '123456'),
+('cl11', 'Jefff', '0899992888', 'p', 'Jl. Jefff', '123456'),
+('cl12', 'Jeffrey', '08123456', 'p', 'Jl. Jeffrey', '123456');
 
 -- --------------------------------------------------------
 
@@ -112,7 +114,7 @@ CREATE TABLE `contract` (
 --
 
 INSERT INTO `contract` (`contractID`, `staffID`, `numberOfJob`, `totalMilage`) VALUES
-('ct01', 'st06', 5, 50),
+('ct01', 'st06', 10, 173),
 ('ct02', 'st06', 14, 635),
 ('ct03', 'st06', 21, 1402),
 ('ct04', 'st07', 0, 0),
@@ -318,7 +320,29 @@ INSERT INTO `job` (`jobID`, `extID`, `clientID`, `date`, `pTime`, `dTime`, `pAdd
 ('jb027', 'ex40', 'cl06', '2017-05-31', '21:18:20', '21:54:39', 'taman anggrek', 'untar'),
 ('jb028', 'ex18', 'cl04', '2017-05-14', '12:00:00', '12:20:21', 'kota', 'blok m'),
 ('jb029', 'ex21', 'cl04', '2017-05-12', '11:21:31', '11:48:31', 'penjaringan', 'pik'),
-('jb030', 'ex14', 'cl04', '2017-04-23', '21:50:00', '23:12:45', 'pgc', 'kota');
+('jb030', 'ex14', 'cl04', '2017-04-23', '21:50:00', '23:12:45', 'pgc', 'kota'),
+('jb31', 'ex38', 'cl01', '2017-06-06', '20:01:11', '20:01:15', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb32', 'ex38', 'cl02', '2017-06-06', '20:04:00', '20:04:03', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb33', 'ex38', 'cl01', '2017-06-06', '20:04:50', '20:04:52', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb34', 'ex38', 'cl01', '2017-06-06', '20:12:09', '20:12:11', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb35', 'ex38', 'cl01', '2017-06-06', '20:16:39', '20:16:39', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb36', 'ex38', 'cl01', '2017-06-06', '20:17:52', '20:17:55', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb37', 'ex38', 'cl01', '2017-06-06', '20:18:51', '20:18:54', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb38', 'ex38', 'cl01', '2017-06-06', '20:19:11', '20:19:13', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb39', 'ex38', 'cl01', '2017-06-06', '21:03:09', '21:03:12', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb40', 'ex36', 'cl01', '2017-06-06', '21:03:15', '21:03:17', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb41', 'ex38', 'cl01', '2017-06-06', '21:05:31', '21:05:31', '\n                          Pondok Indah Mall', 'Mall Of Indonesia'),
+('jb42', 'ex38', 'cl01', '2017-06-06', '21:06:07', '21:06:10', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb43', 'ex38', 'cl01', '2017-06-06', '21:07:17', '21:07:21', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb44', 'ex38', 'cl01', '2017-06-06', '21:11:34', '21:11:34', '\n                          Mall Taman Anggrek', 'Mall Of Indonesia'),
+('jb45', 'ex38', 'cl01', '2017-06-06', '21:11:55', '21:11:57', '\n                          Pondok Indah Mall', 'Mall Of Indonesia'),
+('jb46', 'ex38', 'cl01', '2017-06-07', '02:42:48', '02:42:54', '\n                          Mall Taman Anggrek', 'Mall Of Indonesia'),
+('jb47', 'ex36', 'cl01', '2017-06-07', '02:43:10', '02:43:15', '\n                          Mall Of Indonesia', 'Pondok Indah Mall'),
+('jb48', 'ex36', 'cl11', '2017-06-07', '02:50:31', '02:50:38', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb49', 'ex38', 'cl11', '2017-06-07', '02:59:50', '02:59:53', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb50', 'ex38', 'cl11', '2017-06-07', '03:15:44', '03:15:46', '\n                          Mall Of Indonesia', 'Mall Taman Anggrek'),
+('jb51', 'ex38', 'cl12', '2017-06-14', '17:23:29', '17:23:34', '\n                          Pondok Indah Mall', 'Puri Indah Mall'),
+('jb52', 'ex36', 'cl12', '2017-06-14', '17:31:36', '17:31:36', '\n                          Pondok Indah Mall', 'Puri Indah Mall');
 
 -- --------------------------------------------------------
 
@@ -415,7 +439,9 @@ INSERT INTO `private` (`clientID`, `gender`, `age`, `staffID`) VALUES
 ('cl04', 'female', 25, 'st07'),
 ('cl07', 'male', 20, 'st07'),
 ('cl08', 'male', 20, 'st08'),
-('cl09', 'female', 31, 'st09');
+('cl09', 'female', 31, 'st09'),
+('cl11', 'male', 18, 'st06'),
+('cl12', 'male', 18, 'st06');
 
 -- --------------------------------------------------------
 
@@ -460,7 +486,31 @@ INSERT INTO `receipt` (`jobID`, `mileage`, `status`, `description`, `charge`) VA
 ('jb022', 12, 'succeed', 'ok', 44000),
 ('jb023', 10, 'succeed', 'ok', 44000),
 ('jb024', 7, 'succeed', 'ok', 44000),
-('jb025', 5, 'succeed', 'ok', 44000);
+('jb025', 5, 'succeed', 'ok', 44000),
+('jb34', 22, 'succeed', 'ok', 88000),
+('jb36', 22, 'succeed', 'ok', NULL),
+('jb37', 22, 'succeed', 'ok', NULL),
+('jb38', 22, 'succeed', 'ok', NULL),
+('jb39', 22, 'succeed', 'ok', NULL),
+('jb40', 0, 'failed', 'user cancel', 0),
+('jb42', 0, 'failed', 'user cancel', 0),
+('jb43', 0, 'failed', 'user cancel', 0),
+('jb45', 0, 'failed', 'user cancel', NULL),
+('jb46', 0, 'failed', 'user cancel', NULL),
+('jb47', 35, 'succeed', 'ok', NULL),
+('jb48', 22, 'succeed', 'ok', 88000),
+('jb49', 0, 'failed', 'user cancel', NULL),
+('jb50', 22, 'succeed', 'ok', 88000),
+('jb026', 13, 'succeed', 'ok', 52000),
+('jb027', 14, 'succeed', 'ok', 56000),
+('jb028', 3, 'succeed', 'ok', 12000),
+('jb029', 7, 'succeed', 'ok', 28000),
+('jb030', 8, 'succeed', 'ok', 32000),
+('jb31', 22, 'succeed', 'ok', 88000),
+('jb32', 22, 'succeed', 'ok', 88000),
+('jb33', 22, 'succeed', 'ok', 88000),
+('jb35', 22, 'succeed', 'ok', 88000),
+('jb51', 0, 'failed', 'user cancel', NULL);
 
 -- --------------------------------------------------------
 

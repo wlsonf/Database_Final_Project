@@ -218,6 +218,8 @@ Public Class Main2
 
         Jour.Mileage = find_distance()
         Jour.JobID = nextID
+        Jour.Dept = DepartureBox.SelectedItem.ToString()
+        Jour.Dest = DestinationBox.SelectedItem.ToString()
         AAA.UserYa = UserYa
         AAA.Jour = Jour
         AAA.Show()

@@ -55,16 +55,16 @@ Partial Class Main2
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(45, 62)
+        Me.Label3.Location = New System.Drawing.Point(54, 62)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 13)
+        Me.Label3.Size = New System.Drawing.Size(54, 13)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Where to go"
+        Me.Label3.Text = "Departure"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(51, 94)
+        Me.Label4.Location = New System.Drawing.Point(48, 94)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 13)
         Me.Label4.TabIndex = 3

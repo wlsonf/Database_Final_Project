@@ -18,4 +18,6 @@ End Class
 Public Class Trip
     Public JobID As String
     Public Mileage As Int32
+    Public Dept As String
+    Public Dest As String
 End Class
